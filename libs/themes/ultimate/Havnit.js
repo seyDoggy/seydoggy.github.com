@@ -28,7 +28,7 @@ jQuery(document).ready(function($){
 			$.sdSmartNav();
 
 			//  set top margin for #toolbar_horizontal / !hide !empty top nav
-			sdNav.tb1.sdVertAlign('o','m').show();	
+			sdNav.tb1.sdVertAlign('o','m').css('display','block');	
 			
 			// hide empty #toolbar_horizontal
 			if (!sdNav.tb1.html().length) sdNav.tb1.css('display','none');
@@ -42,14 +42,14 @@ jQuery(document).ready(function($){
 		var sdFooter = (function(){
 			//  hide empty footer
 			if (bContainer.length){
-				bContainer.parent().show();
+				bContainer.parent().css('display','block');
 				// additional breadcrumb separator styling
 				breadList
 					.append('/')
 					.find('li').filter(':last').css('margin','0 5px')
 					.find('a').filter(':last').css('margin','0 5px');
 			}
-			if (fContent.html().length) fContainer.show();
+			if (fContent.html().length) fContainer.css('display','block');
 		})();
 		/* @end */
 		
