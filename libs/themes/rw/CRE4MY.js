@@ -1,4 +1,4 @@
-/* sdHavnitFunctions */
+/* sdCRE4MYFunctions */
 jQuery.noConflict();
 jQuery(document).ready(function($){
 	var sdCRE4MYFunctions = (function(){
