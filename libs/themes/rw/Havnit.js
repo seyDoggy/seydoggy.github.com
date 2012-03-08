@@ -1,4 +1,5 @@
-/* sdHavnitFunctions */
+// Havnit (c) 2012 Adam Merrifield http://seydoggy.github.com/libs/rw/ultimate/Havnit.js
+
 jQuery.noConflict();
 jQuery(document).ready(function($){
 	var sdHavnitFunctions = (function(){

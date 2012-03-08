@@ -1,3 +1,5 @@
+// seyDoggy Ultimate Common (c) 2012 Adam Merrifield http://seydoggy.github.com/libs/themes/ultimate/common.js
+
 /*!
  * jQuery Cycle Plugin (with Transition Definitions)
  * Examples and documentation at: http://jquery.malsup.com/cycle/

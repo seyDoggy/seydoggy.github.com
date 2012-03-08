@@ -1,4 +1,5 @@
-/* sdCRE4MYFunctions */
+// CRE4MY (c) 2012 Adam Merrifield http://seydoggy.github.com/libs/themes/rw/CRE4MY.js
+
 jQuery.noConflict();
 jQuery(document).ready(function($){
 	var sdCRE4MYFunctions = (function(){

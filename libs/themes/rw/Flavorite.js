@@ -1,4 +1,5 @@
-/* sdFlavoriteFunctions */
+// Flavorite (c) 2012 Adam Merrifield http://seydoggy.github.com/libs/themes/rw/Flavorite.js
+
 jQuery.noConflict();
 jQuery(document).ready(function($){
 	var sdFlavoriteFunctions = (function(){
