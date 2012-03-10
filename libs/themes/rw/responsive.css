@@ -5,8 +5,8 @@
 @media screen and (max-width:600px) {
 }
 @media screen and (max-width:480px) {
-}
-@media screen and (max-width:320px) {
 	.sidebarContent{float:none;padding: 1em;width:auto;}
 	.mainContent{border:none;border-bottom: 1px solid;float:none;width:auto;}
+}
+@media screen and (max-width:320px) {
 }
