@@ -1,16 +1,12 @@
 @media screen and (max-width:768px) {
-	body{min-width:100% !important;}
-	.wrapper{width:94% !important}
+	body{min-width:100%;}
+	.wrapper{width:94%}
 }
 @media screen and (max-width:600px) {
-	body{min-width:100% !important;}
-	.wrapper{width:94% !important}
 }
 @media screen and (max-width:480px) {
-	body{min-width:100% !important;}
-	.wrapper{width:94% !important}
 }
 @media screen and (max-width:320px) {
-	body{min-width:100% !important;}
-	.wrapper{width:94% !important}
+	.sidebarContent{float:none;padding: 1em;}
+	.mainContent{border-bottom: 1px solid;float:none;}
 }
