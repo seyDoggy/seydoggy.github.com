@@ -4,13 +4,16 @@
 	.wrapper{width:94%}
 }
 @media screen and (max-width:768px) {
-	/*CREAMY*/
 	body{min-width:100%;}
+	/*CREAMY*/
 	.wrapper{width:94%}
+	/*EHVolver*/
+	.wrapperOuter{min-width:100%;}
+	.wrapperInner{width:94%;padding: 0;}
 }
 @media screen and (max-width:600px) {
 	/*CREAMY*/
-	.sidebarContent{clear: both;float:none;padding: 1em;width:auto;}
+	.sidebarContent{clear: both;float:none;padding: 1em 0;width:auto;}
 	.mainContent{border:none;float:none;width:auto;}
 	.headerContainer{display: none;}
 	/*seyDoggyGrid*/
@@ -20,7 +23,12 @@
 	/*CREAMY*/
 	nav.breadcrumbContainer{display: none;}
 	.filesharing-item{float: none;width:auto !important;}
+	/*EHVolver*/
+	.wrapperTBH{display: none;}
+	.wrapperContent .mainContent{padding: 0;}
 	/*seyDoggyGrid*/
+	.seydoggyGrid{margin-left:0;}
+	.seydoggyGrid .column .content{margin-left:0;}
 	.seydoggyGrid .two{float: none;width:auto;}
 }
 @media screen and (max-width:320px) {

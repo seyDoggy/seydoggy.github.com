@@ -60,16 +60,35 @@ jQuery(document).ready(function($){
 		
 		/* @group title vertical/horizontal alignment */
 		var sdTitlealign = (function(){
-			// vertical center logo
-			if (siteLogo.length) siteLogo.sdVertAlign(siteHeader).end().show();
-			// vertical center title
-			if (siteTitle.html().length) siteTitle.sdVertAlign(siteHeader).end().show();
-			// vertical center slogan
-			if (siteSlogan.html().length) siteSlogan.sdVertAlign(siteHeader).end().show();
-			// get width of all elements in the siteHeader
-			var totalWidth = siteLogo.outerWidth(true) + siteTitle.outerWidth(true) + siteSlogan.outerWidth(true) + 1;
-			// set siteHeader width (center styling done in CSS)
-			siteHeader.width(totalWidth);
+			// if mobile
+			if (jq.add('body').width() <= '600') {
+				wTitle.css('text-align','left');
+				title.css('display','block');
+				siteLogo.css('display','none');
+				siteTitle.css({
+					'display':'block',
+					'float':'none',
+					'margin':'0'
+				});
+				siteSlogan.css({
+					'display':'block',
+					'float':'none',
+					'margin':'0'
+				});
+				// vertical center title
+				siteTitle.css('padding-top',(siteHeader.height()/2) - (title.height()/2));
+			} else{
+				// vertical center logo
+				if (siteLogo.length) siteLogo.sdVertAlign(siteHeader).end().show();
+				// vertical center title
+				if (siteTitle.html().length) siteTitle.sdVertAlign(siteHeader).end().show();
+				// vertical center slogan
+				if (siteSlogan.html().length) siteSlogan.sdVertAlign(siteHeader).end().show();
+				// get width of all elements in the siteHeader
+				var totalWidth = siteLogo.outerWidth(true) + siteTitle.outerWidth(true) + siteSlogan.outerWidth(true) + 1;
+				// set siteHeader width (center styling done in CSS)
+				siteHeader.width(totalWidth);
+			}
 		})();
 		/* @end */
 
@@ -77,18 +96,41 @@ jQuery(document).ready(function($){
 		var sdNavOptions = (function(){
 			// invoke sdSmartNav
 			$.sdSmartNav();
-			
-			// if option 2-tier
-			if (sdNav.type == 1) {
-				// styles for toolbar_horizontal
-				sdNav.tb1.find('> ul').sdVertAlign(tbHW).find('a').addClass('radiusButtons contentShadowLight');
-				// styles for toolbar_vertical
-				sdNav.tb3.find('a').addClass('radiusButtons contentShadowLight');
-			} else if (sdNav.type == 3) {
-				// if option Vertical
-				sdNav.tb3.find('a').addClass('radiusButtons contentShadowLight');
-				tbHW.remove();
-			} else tbHW.remove();
+			// if mobile
+			if (jq.add('body').width() <= '600') {
+				// remove additional tiers
+				sdNav.tb2.remove();
+				sdNav.tb3.remove();
+				// add link to navigation
+				$('<a href="#toolbar_vertical" title="menu"></a>').prependTo(siteHeader).css({
+					"background-image":"url(http://seydoggy.github.com/libs/themes/rw/plus.black.32.png)",
+					"background-repeat":"no-repeat",
+					"float":"right",
+					"height":"32px",
+					"margin-top":(siteHeader.height()/2)-16,
+					"width":"32px"
+				});
+				// move nav after footer
+				sdNav.tb1.insertAfter(wCopyright).attr('id','toolbar_vertical').css({
+					'margin-top':'1.5em',
+					'margin-right':'auto',
+					'margin-left':'auto',
+					'margin-bottom':'1.5em',
+					'width':'94%'
+				}).find('a').addClass('radiusButtons contentShadowLight');
+			} else {
+				// if option 2-tier
+				if (sdNav.type == 1) {
+					// styles for toolbar_horizontal
+					sdNav.tb1.find('> ul').sdVertAlign(tbHW).find('a').addClass('radiusButtons contentShadowLight');
+					// styles for toolbar_vertical
+					sdNav.tb3.find('a').addClass('radiusButtons contentShadowLight');
+				} else if (sdNav.type == 3) {
+					// if option Vertical
+					sdNav.tb3.find('a').addClass('radiusButtons contentShadowLight');
+					tbHW.remove();
+				} else tbHW.remove();
+			}
 		})();
 		/* @end */
 
