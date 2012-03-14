@@ -68,7 +68,7 @@ jQuery(document).ready(function($){
 					"margin-right":"0.75em",
 					"width":"32px"
 				});
-				// move nav after header
+				// move nav after footer
 				sdNav.tb1.insertAfter(wFooter).attr('id','toolbar_vertical').css('margin-top','1.5em').addClass('radiusAll');
 				// capture first and last items for toolbar_vertical
 				if (sdNav.tb1.find('ul li').length <= 1) sdNav.tb3.find('a').addClass('radiusAll');
