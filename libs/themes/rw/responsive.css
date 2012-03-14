@@ -5,23 +5,22 @@
 }
 @media screen and (max-width:768px) {
 	body{min-width:100%;}
-	/*CREAMY*/
 	.wrapper{width:94%}
 	/*EHVolver*/
 	.wrapperOuter{min-width:100%;}
 	.wrapperInner{width:94%;padding: 0;}
 }
 @media screen and (max-width:600px) {
-	/*CREAMY*/
-	.sidebarContent{clear: both;float:none;padding: 1em 0;width:auto;}
+	.sidebarContent,.sidebarWrapper{clear: both;float:none;padding: 1em 0;width:auto;}
 	.mainContent{border:none;float:none;width:auto;}
 	.headerContainer{display: none;}
+	/*Flavorite*/
+	.sidebarWrapper .sidebarContent{padding: 1em;}
 	/*seyDoggyGrid*/
 	.seydoggyGrid .three,.seydoggyGrid .four,.seydoggyGrid .five,.seydoggyGrid .six,.seydoggyGrid .two3rds,.seydoggyGrid .three4ths,.seydoggyGrid .four5ths,.seydoggyGrid .five6ths{float: none;width:auto;}
 }
 @media screen and (max-width:480px) {
-	/*CREAMY*/
-	nav.breadcrumbContainer{display: none;}
+	.breadcrumbContainer{display: none;}
 	.filesharing-item{float: none;width:auto !important;}
 	/*EHVolver*/
 	.wrapperTBH{display: none;}

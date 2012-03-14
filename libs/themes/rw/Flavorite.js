@@ -43,12 +43,34 @@ jQuery(document).ready(function($){
 		var sdNavOptions = (function(){
 			// invoke sdSmartNav
 			$.sdSmartNav();
-			
-			// capture first and last items for toolbar_vertical
-			sdNav.tb3.find('ul:first li:last a').css('border-style', 'none');
-			sdNav.tb3.find('ul a:first').addClass('firstLink');
-			sdNav.tb3.find('ul:first li:last').addClass('lastListItem');
-			sdNav.tb3.find('ul:first li:last a').addClass('lastLink');
+			// if mobile
+			if (jq.add('body').width() <= '600') {
+				// remove additional tiers
+				sdNav.tb2.remove();
+				sdNav.tb3.remove();
+				// add link to navigation
+				$('<a href="#toolbar_vertical" title="menu"></a>').prependTo(siteHeader).css({
+					"background-image":"url(http://seydoggy.github.com/libs/themes/rw/plus.black.32.png)",
+					"background-repeat":"no-repeat",
+					"float":"right",
+					"height":"32px",
+					"margin-top":(siteHeader.height()/2)-16,
+					"width":"32px"
+				});
+				// move nav after footer
+				sdNav.tb1.insertAfter('.footerNormal').attr('id','toolbar_vertical').css('margin-top','2em');
+				// capture first and last items for toolbar_vertical
+				sdNav.tb1.find('ul:first li:last a').css('border-style', 'none');
+				sdNav.tb1.find('ul a:first').addClass('firstLink');
+				sdNav.tb1.find('ul:first li:last').addClass('lastListItem');
+				sdNav.tb1.find('ul:first li:last a').addClass('lastLink');
+			} else {
+				// capture first and last items for toolbar_vertical
+				sdNav.tb3.find('ul:first li:last a').css('border-style', 'none');
+				sdNav.tb3.find('ul a:first').addClass('firstLink');
+				sdNav.tb3.find('ul:first li:last').addClass('lastListItem');
+				sdNav.tb3.find('ul:first li:last a').addClass('lastLink');
+			}
 		})();
 		/* @end */
 
@@ -56,7 +78,10 @@ jQuery(document).ready(function($){
 		var sdTitleAlign = (function(){
 			logoImg.css('padding-top','0').sdVertAlign(siteHeader);
 			title.css('padding-top','0').sdVertAlign(siteHeader);
-			sdNav.tb1.css('padding-top','0').sdVertAlign(siteHeader);
+			// if not mobile
+			if (!(jq.add('body').width() <= '600')) {
+				sdNav.tb1.css('padding-top','0').sdVertAlign(siteHeader);
+			}
 		})();
 		/* @end */
 
