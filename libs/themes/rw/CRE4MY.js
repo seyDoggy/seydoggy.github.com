@@ -53,21 +53,47 @@ jQuery(document).ready(function($){
 		var sdNavOptions = (function(){
 			// invoke sdSmartNav
 			$.sdSmartNav();
+			// if mobile
+			if (jq.add('body').width() <= '600') {
+				// remove additional tiers
+				sdNav.tb2.remove();
+				sdNav.tb3.remove();
+				// add link to navigation
+				$('<a href="#toolbar_vertical" title="menu"></a>').prependTo(siteHeader).css({
+					"background-image":"url(http://seydoggy.github.com/libs/themes/rw/plus.black.32.png)",
+					"background-repeat":"no-repeat",
+					"float":"right",
+					"height":"32px",
+					"margin-top":(siteHeader.height()/2)-16,
+					"margin-right":"0.75em",
+					"width":"32px"
+				});
+				// move nav after header
+				sdNav.tb1.insertAfter(wFooter).attr('id','toolbar_vertical').css('margin-top','1.5em').addClass('radiusAll');
+				// capture first and last items for toolbar_vertical
+				if (sdNav.tb1.find('ul li').length <= 1) sdNav.tb3.find('a').addClass('radiusAll');
+				else sdNav.tb1.find('ul:first li:first a:first').addClass('radiusTop')
+						.end().find('ul:first li:last a:last').addClass('radiusBottom').css('border-style', 'none');
+				// round mPreContent
+				mPreContent.addClass('radiusTop');
+				// set sub nav as empty
+				emptySub = true;
+			} else {
+				if ((sdNav.type == 1 || sdNav.type == 3 || sdNav.type == 4) || (sdNav.tbsP == undefined)) emptySub = true;
+				if (!(logoImg.length) && !(siteTitle.html().length) && !(siteSlogan.html().length) && sdNav.type >= 2) emptyBar = true;
 
-			if ((sdNav.type == 1 || sdNav.type == 3 || sdNav.type == 4) || (sdNav.tbsP == undefined)) emptySub = true;
-			if (!(logoImg.length) && !(siteTitle.html().length) && !(siteSlogan.html().length) && sdNav.type >= 2) emptyBar = true;
+				// capture first and last items for toolbar_vertical
+				if (sdNav.tb3.find('ul li').length <= 1) sdNav.tb3.find('a').addClass('radiusAll');
+				else sdNav.tb3.find('ul:first li:first a:first').addClass('radiusTop')
+						.end().find('ul:first li:last a:last').addClass('radiusBottom').css('border-style', 'none');
 
-			// capture first and last items for toolbar_vertical
-			if (sdNav.tb3.find('ul li').length <= 1) sdNav.tb3.find('a').addClass('radiusAll');
-			else sdNav.tb3.find('ul:first li:first a:first').addClass('radiusTop')
-					.end().find('ul:first li:last a:last').addClass('radiusBottom').css('border-style', 'none');
-
-			// STYLES FOR TIER 2
-			sdNav.tb2.find('ul').append('<div class="clear">');
-			// round first list item
-			if (sdNav.tbsP != undefined) sdNav.tb2.find('> ul:first > li:first >  a:first').addClass('radiusTopLeft');
-			// round mPreContent
-			else mPreContent.addClass('radiusTop');
+				// STYLES FOR TIER 2
+				sdNav.tb2.find('ul').append('<div class="clear">');
+				// round first list item
+				if (sdNav.tbsP != undefined) sdNav.tb2.find('> ul:first > li:first >  a:first').addClass('radiusTopLeft');
+				// round mPreContent
+				else mPreContent.addClass('radiusTop');
+			}
 		})();
 		/* @end */
 
