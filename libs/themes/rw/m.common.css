@@ -1,12 +1,6 @@
-@media screen and (max-width:1024px) {
-	/*CREAMY*/
-	body{min-width:100%;}
-	.wrapper{width:94%}
-}
 @media screen and (max-width:768px) {
 	body{min-width:100%;}
 	.wrapper{width:94%}
-	/*EHVolver*/
 	.wrapperOuter{min-width:100%;}
 	.wrapperInner{width:94%;padding: 0;}
 }
@@ -33,6 +27,4 @@
 	.seydoggyGrid{margin-left:0;}
 	.seydoggyGrid .column .content{margin-left:0;}
 	.seydoggyGrid .two{float: none;width:auto;}
-}
-@media screen and (max-width:320px) {
 }
