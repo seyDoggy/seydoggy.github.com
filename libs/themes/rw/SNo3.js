@@ -49,6 +49,12 @@ jQuery(document).ready(function($){
 		
 		/* @group Title align */
 		var sdTitleAlign = (function(){
+			// if mobile
+			if (jq.add('body').width() <= '600') {
+				jq.add('body').css('padding-top','1em');
+				logo.css('display','none');
+				title.css('font-size','0.75em');
+			}
 			// kill padding used until js loads
 			logoImg.add(title).css('padding-top','0');
 			// set top margin for .siteHeader .title
@@ -72,33 +78,61 @@ jQuery(document).ready(function($){
 		var sdNavOptions = (function(){
 			// invoke sdSmartNav
 			$.sdSmartNav();
-			
-			// STYLES FOR NAVIGATION CENTER
-			if (sdNav.tb1.css('float') == 'none') {
-				sdNav.tb1.width(sdNav.tb1.find('ul:first').outerWidth(true) + 1);
-			}
+			// if mobile
+			if (jq.add('body').width() <= '600') {
+				// remove additional tiers
+				sdNav.tb2.remove();
+				sdNav.tb3.remove();
+				// add link to navigation
+				$('<a href="#toolbar_vertical" title="menu"></a>').prependTo(siteHeader).css({
+					"background-image":"url(http://seydoggy.github.com/libs/themes/rw/plus.black.32.png)",
+					"background-repeat":"no-repeat",
+					"float":"right",
+					"height":"32px",
+					"margin-top":(siteHeader.height()/2)-16,
+					"margin-right":"0.75em",
+					"width":"32px"
+				});
+				// move nav after footer
+				sdNav.tb1.insertAfter(wrapper).attr('id','toolbar_vertical');
+				// STYLES FOR MOBILE TIER 1
+				sdNav.tb1.css({
+					'float':'none',
+					'margin':'1.5em auto',
+					'width':wrapper.width(),
+				}).addClass('radiusAll contentShadow');
+				// capture first and last items for toolbar_vertical
+				if (sdNav.tb1.find('ul li').length <= 1) sdNav.tb1.find('a').addClass('radiusAll');
+				else sdNav.tb1.find('ul:first li:first a:first').addClass('radiusTop')
+						.end().find('ul:first li:last a:last').addClass('radiusBottom').css('border-style', 'none');
+			} else {
+				// STYLES FOR NAVIGATION CENTER
+				if (sdNav.tb1.css('float') == 'none') {
+					sdNav.tb1.width(sdNav.tb1.find('ul:first').outerWidth(true) + 1);
+				}
 
-			// STYLES FOR TIER 1
-			sdNav.tb1.sdVertAlign('o');
+				// STYLES FOR TIER 1
+				sdNav.tb1.sdVertAlign('o');
 
-			// STYLES FOR TIER 2
-			sdNav.tb2.find('ul').append('<div class="clear">');
+				// STYLES FOR TIER 2
+				sdNav.tb2.find('ul').append('<div class="clear">');
 
-			// STYLES FOR TIER 3
-			sdNav.tb3.width(sidenavWidth);
-			// make sidenav .current state wider to cover border (if !Firefox)
-			var cItem = sdNav.tb3.find('.currentListItem'),
-			cList = sdNav.tb3.find('.currentListItem').find('.toolbarList');
+				// STYLES FOR TIER 3
+				sdNav.tb3.width(sidenavWidth);
+				// make sidenav .current state wider to cover border (if !Firefox)
+				var cItem = sdNav.tb3.find('.currentListItem'),
+				cList = sdNav.tb3.find('.currentListItem').find('.toolbarList');
 
-			if (!$.browser.mozilla) {
-				cItem.width(sidenavWidth + 1);
-				cList.width(sidenavWidth);
-			}
-			if (sContent.css('float') == 'left') sdNav.tb3.addClass('innerShadowRight');
-			else if (sContent.css('float') == 'right') {
-				sdNav.tb3.addClass('innerShadowLeft');
-				cItem.css({'position':'relative','left':'-1px'});
-				cList.css({'position':'relative','left':'1px'});
+				if (!$.browser.mozilla) {
+					cItem.width(sidenavWidth + 1);
+					cList.width(sidenavWidth);
+				}
+				if (sContent.css('float') == 'left') sdNav.tb3.addClass('innerShadowRight');
+				else if (sContent.css('float') == 'right') {
+					sdNav.tb3.addClass('innerShadowLeft');
+					cItem.css({'position':'relative','left':'-1px'});
+					cList.css({'position':'relative','left':'1px'});
+				}
 			}
 		})();
 		/* @end */
