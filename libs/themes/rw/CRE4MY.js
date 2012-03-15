@@ -71,7 +71,7 @@ jQuery(document).ready(function($){
 				// move nav after footer
 				sdNav.tb1.insertAfter(wFooter).attr('id','toolbar_vertical').css('margin-top','1.5em').addClass('radiusAll');
 				// capture first and last items for toolbar_vertical
-				if (sdNav.tb1.find('ul li').length <= 1) sdNav.tb3.find('a').addClass('radiusAll');
+				if (sdNav.tb1.find('ul li').length <= 1) sdNav.tb1.find('a').addClass('radiusAll');
 				else sdNav.tb1.find('ul:first li:first a:first').addClass('radiusTop')
 						.end().find('ul:first li:last a:last').addClass('radiusBottom').css('border-style', 'none');
 				// round mPreContent
