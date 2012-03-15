@@ -27,15 +27,37 @@ jQuery(document).ready(function($){
 		var sdNavOptions = (function(){
 			// invoke sdSmartNav
 			$.sdSmartNav();
-
-			//  set top margin for #toolbar_horizontal / !hide !empty top nav
-			sdNav.tb1.sdVertAlign('o','m').css('display','block');	
+			// if mobile
+			if (jq.add('body').width() <= '600') {
+				// remove additional tiers
+				sdNav.tb2.remove();
+				sdNav.tb3.remove();
+				// add link to navigation
+				$('<a href="#toolbar_vertical" title="menu"></a>').prependTo(siteHeader).css({
+					"background-image":"url(http://seydoggy.github.com/libs/themes/rw/plus.black.32.png)",
+					"background-repeat":"no-repeat",
+					"float":"right",
+					"height":"32px",
+					"margin-top":(title.height()/2)-16,
+					"margin-right":"0.75em",
+					"width":"32px"
+				});
+				// move nav after footer
+				sdNav.tb1.insertAfter(fContainer).attr('id','toolbar_vertical');
+				// hide logo
+				siteLogo.parent().css('display','none');
+				// reduce font size in title and slogan
+				title.css('font-size','0.7em');
+			} else {
+				//  set top margin for #toolbar_horizontal / !hide !empty top nav
+				sdNav.tb1.sdVertAlign('o','m').css('display','block');	
 			
-			// hide empty #toolbar_horizontal
-			if (!sdNav.tb1.html().length) sdNav.tb1.css('display','none');
+				// hide empty #toolbar_horizontal
+				if (!sdNav.tb1.html().length) sdNav.tb1.css('display','none');
 			
-			// !round main content if #toolbar_sub is present
-			if (sdNav.tb2.html().length) mPreContent.addClass('radius0');
+				// !round main content if #toolbar_sub is present
+				if (sdNav.tb2.html().length) mPreContent.addClass('radius0');
+			}
 		})();
 		/* @end */
 

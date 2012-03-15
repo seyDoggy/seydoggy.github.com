@@ -16,6 +16,8 @@
 	.headerContainer{display: none;}
 	/*Flavorite*/
 	.sidebarWrapper .sidebarContent{padding: 1em;}
+	/*Havnit*/
+	.sidebarContent .sidebar{padding: 1em;}
 	/*seyDoggyGrid*/
 	.seydoggyGrid .three,.seydoggyGrid .four,.seydoggyGrid .five,.seydoggyGrid .six,.seydoggyGrid .two3rds,.seydoggyGrid .three4ths,.seydoggyGrid .four5ths,.seydoggyGrid .five6ths{float: none;width:auto;}
 }
@@ -25,6 +27,8 @@
 	/*EHVolver*/
 	.wrapperTBH{display: none;}
 	.wrapperContent .mainContent{padding: 0;}
+	/*Havnit*/
+	.footerContent{width:auto;}
 	/*seyDoggyGrid*/
 	.seydoggyGrid{margin-left:0;}
 	.seydoggyGrid .column .content{margin-left:0;}
