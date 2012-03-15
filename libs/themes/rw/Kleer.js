@@ -29,7 +29,10 @@ jQuery(document).ready(function($){
 		
 		/* @group General styles */
 		// set width of .wrapperOuter to .siteHeader
-		wOuter.css('min-width',pageWidth + 86);
+		// if not mobile
+		if (!(jq.add('body').width() <= '600')) {
+			wOuter.css('min-width',pageWidth + 86);
+		}
 
 		// invoke slideshow
 		$.SeydoggySlideshow({
@@ -40,12 +43,29 @@ jQuery(document).ready(function($){
 
 		/* @group title center */
 		var sdTitle = (function(){
-			if (titleBlock.css('float') == 'none') {
-				var lw = logo.outerWidth(true),
-					tw = title.outerWidth(true),
-					tbw = lw + tw;
-				titleBlock.width(tbw);
-				if (!logoImg.length) title.css({'margin-left':'0','text-align':'center'});
+			// if mobile
+			if (jq.add('body').width() <= '600') {
+				logo.css('display','none');
+				title.find('.site_title').css({
+					'display':'block',
+					'float':'none',
+					'font-size':'1.7em',
+					'margin':'0'
+				});
+				title.find('.site_slogan').css({
+					'display':'block',
+					'float':'none',
+					'font-size':'1.2em',
+					'margin':'0'
+				});
+			} else {
+				if (titleBlock.css('float') == 'none') {
+					var lw = logo.outerWidth(true),
+						tw = title.outerWidth(true),
+						tbw = lw + tw;
+					titleBlock.width(tbw);
+					if (!logoImg.length) title.css({'margin-left':'0','text-align':'center'});
+				}
 			}
 		})();
 		/* @end */
@@ -54,38 +74,62 @@ jQuery(document).ready(function($){
 		var sdNavOptions = (function(){
 			// invoke sdSmartNav
 			$.sdSmartNav();
-
-			// STYLES FOR NAVIGATION CENTER
-			if (sdNav.tb1.css('float') == 'none') {
-				sdNav.tb1.width(sdNav.tb1.find('ul:first').outerWidth(true) + 1);
-			}
-
-			// STYLES FOR TIER 1
-			sdNav.tb1
-				.find('a').css('background-position','0' + ' ' + (((sdNav.tb1.find('a').outerHeight(true) / 2) - 23) + 'px'))
-				.end().find('.current').add(sdNav.tb1.find('.currentAncestor')).css('background-position','left top')
-				.end().end().find('ul:first').addClass('radiusAll contentShadow');
-
-			if (!sdNav.tb1.find('ul li:first').siblings().length) {
-				sdNav.tb1.find('a').addClass('radiusAll').css('border-style','none');
-			}else{
+			// if mobile
+			if (jq.add('body').width() <= '600') {
+				// remove additional tiers
+				sdNav.tb2.remove();
+				sdNav.tb3.remove();
+				// add link to navigation
+				$('<a href="#toolbar_vertical" title="menu"></a>').prependTo(siteHeader).css({
+					"background-image":"url(http://seydoggy.github.com/libs/themes/rw/plus.black.32.png)",
+					"background-repeat":"no-repeat",
+					"float":"right",
+					"height":"32px",
+					"margin-top":(title.height()/2)-16,
+					"margin-right":"0.75em",
+					"width":"32px"
+				});
+				// move nav after footer
+				sdNav.tb1.insertAfter(wCopyright).attr('id','toolbar_vertical');
+				// STYLES FOR MOBILE TIER 1
 				sdNav.tb1
-					.find('a:first').addClass('radiusLeft').css('border-left-style','none')
-					.end().find('a:last').addClass('radiusRight').css('border-right-style','none');
+					.find('a')
+						.addClass('radiusAll contentShadowLight')
+						.css('background-position','0' + ' ' + (((sdNav.tb3.find('a').outerHeight(true) / 2) - 26) + 'px'))
+					.end().find('.current').add(sdNav.tb1.find('.currentAncestor')).css('background-position','left top');
+			} else {
+				// STYLES FOR NAVIGATION CENTER
+				if (sdNav.tb1.css('float') == 'none') {
+					sdNav.tb1.width(sdNav.tb1.find('ul:first').outerWidth(true) + 1);
+				}
+
+				// STYLES FOR TIER 1
+				sdNav.tb1
+					.find('a').css('background-position','0' + ' ' + (((sdNav.tb1.find('a').outerHeight(true) / 2) - 23) + 'px'))
+					.end().find('.current').add(sdNav.tb1.find('.currentAncestor')).css('background-position','left top')
+					.end().end().find('ul:first').addClass('radiusAll contentShadow');
+
+				if (!sdNav.tb1.find('ul li:first').siblings().length) {
+					sdNav.tb1.find('a').addClass('radiusAll').css('border-style','none');
+				}else{
+					sdNav.tb1
+						.find('a:first').addClass('radiusLeft').css('border-left-style','none')
+						.end().find('a:last').addClass('radiusRight').css('border-right-style','none');
+				}
+
+				// STYLES FOR TIER 2
+				sdNav.tb2
+					.find('a').css('background-position','left bottom')
+					.end().find('ul').append('<div class="clear">')
+					.end().find('ul li a').addClass('radiusTop outerShadowTop');
+
+				// STYLES FOR TIER 3
+				sdNav.tb3
+					.find('a')
+						.addClass('radiusAll contentShadowLight')
+						.css('background-position','0' + ' ' + (((sdNav.tb3.find('a').outerHeight(true) / 2) - 26) + 'px'))
+					.end().find('.current').add(sdNav.tb3.find('.currentAncestor')).css('background-position','left top');
 			}
-
-			// STYLES FOR TIER 2
-			sdNav.tb2
-				.find('a').css('background-position','left bottom')
-				.end().find('ul').append('<div class="clear">')
-				.end().find('ul li a').addClass('radiusTop outerShadowTop');
-
-			// STYLES FOR TIER 3
-			sdNav.tb3
-				.find('a')
-					.addClass('radiusAll contentShadowLight')
-					.css('background-position','0' + ' ' + (((sdNav.tb3.find('a').outerHeight(true) / 2) - 26) + 'px'))
-				.end().find('.current').add(sdNav.tb3.find('.currentAncestor')).css('background-position','left top');
 		})();
 		/* @end */
 			

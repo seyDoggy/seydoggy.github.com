@@ -12,7 +12,7 @@
 }
 @media screen and (max-width:600px) {
 	.sidebarContent,.sidebarWrapper{clear: both;float:none;padding: 1em 0;width:auto;}
-	.mainContent{border:none;float:none;width:auto;}
+	.mainContent{background-image: none;border:none;float:none;width:auto;}
 	.headerContainer{display: none;}
 	/*Flavorite*/
 	.sidebarWrapper .sidebarContent{padding: 1em;}
@@ -26,7 +26,7 @@
 	.filesharing-item{float: none;width:auto !important;}
 	/*EHVolver*/
 	.wrapperTBH{display: none;}
-	.wrapperContent .mainContent{padding: 0;}
+	.wrapperContent .mainContent{padding-right: 0;padding-left: 0;}
 	/*Havnit*/
 	.footerContent{width:auto;}
 	/*seyDoggyGrid*/
