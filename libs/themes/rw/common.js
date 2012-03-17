@@ -3317,7 +3317,7 @@ sdSS = {};
     }
 })(jQuery);
 // be sure to initiate sdNav object in <head> of html with sdNAv = {};
-/* sdSmartNav 1.0.6 */
+/* sdSmartNav 1.0.7 */
 (function($) {
     $.sdSmartNav = function(settings) {
 	
@@ -3383,8 +3383,14 @@ sdSS = {};
 
 		// prepend sub tiers
         if (sdNav.tb1.children().length) {
-			if (tbvP.length) sdNav.tb3.prepend(tbvP.clone()).css('display','block'), tbvP.css('display','none');
-			if (tbsP.length) sdNav.tb2.prepend(tbsP.clone()).css('display','block'), tbsP.css('display','none');
+			if (tbvP.length) {
+				sdNav.tb3.prepend(tbvP.clone()).css('display','block');
+				if (!(jq.add('body').width() <= '600')) tbvP.css('display','none');
+			}
+			if (tbsP.length) {
+				sdNav.tb2.prepend(tbsP.clone()).css('display','block');
+				if (!(jq.add('body').width() <= '600')) tbsP.css('display','none');
+			}
         };
 		
 		// PUBLIC VARIABLES
