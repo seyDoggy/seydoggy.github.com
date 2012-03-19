@@ -53,7 +53,7 @@ jQuery(document).ready(function($){
 				sdNav.tb1.sdVertAlign('o','m').css('display','block');	
 			
 				// hide empty #toolbar_horizontal
-				if (!sdNav.tb1.html().length) sdNav.tb1.css('display','none');
+				if (!sdNav.tb1.html().length || sdNav.tb1.find('ul').css('display') == 'none') sdNav.tb1.css('display','none');
 			
 				// !round main content if #toolbar_sub is present
 				if (sdNav.tb2.html().length) mPreContent.addClass('radius0');
