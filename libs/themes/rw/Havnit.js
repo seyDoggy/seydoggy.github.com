@@ -43,7 +43,7 @@ jQuery(document).ready(function($){
 					"width":"32px"
 				});
 				// move nav after footer
-				sdNav.tb1.insertAfter(fContainer).attr('id','toolbar_vertical');
+				sdNav.tb1.insertAfter(fContainer).attr('id','toolbar_vertical').css('display','block');
 				// hide logo
 				siteLogo.parent().css('display','none');
 				// reduce font size in title and slogan
