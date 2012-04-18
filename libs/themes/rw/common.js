@@ -1565,6 +1565,7 @@ sdSS = {};
 				myEC.find('script').remove().end().appendTo(ec1).show();
 				// !hide !empty ExtraContent area
 				preContent.show();
+				ec1.show();
 			}
 		}
 
