@@ -201,7 +201,7 @@ jQuery(document).ready(function($){
 				footer.css({'float':'left','text-align':'left'});
 				bContainer.css({'float':'right','text-align':'right'});
 				// remove leading breadcrumb separator
-				bContainer + $('.separator:first').hide();
+				bContainer.find('.separator:first').hide();
 			}
 			// if copyright or breadcrumb is not present
 			else copyright.css('border-top-style','none');
