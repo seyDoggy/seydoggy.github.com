@@ -80,7 +80,7 @@ jQuery(document).ready(function($){
 				sdNav.tb2.remove();
 				sdNav.tb3.remove();
 				// add link to navigation
-				$('<a href="#toolbar_vertical" title="menu"></a>').prependTo(siteHeader).css({
+				$('<a href="#toolbar_vertical" title="menu" class="responsiveMenu"></a>').prependTo(siteHeader).css({
 					"background-image":"url(http://seydoggy.github.com/libs/themes/rw/plus.black.32.png)",
 					"background-repeat":"no-repeat",
 					"float":"right",
