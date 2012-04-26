@@ -9,9 +9,9 @@
 	1488	sdSetHeight - vertical alignment function
 	1524	SeydoggySlideshow - SS3
 	1681	sdSmartNav - Creates smart navigation
-	1763	sdVertAlign - vertical alignment function
-	1808	sdLightboxAlbums - prettyPhoto lightbox helper for RapidWeaver theme developers
-	1915	sdAlbumStyle - styles RapidWeaver albums
+	1796	sdVertAlign - vertical alignment function
+	1841	sdLightboxAlbums - prettyPhoto lightbox helper for RapidWeaver theme developers
+	1948	sdAlbumStyle - styles RapidWeaver albums
 */
 
 
@@ -1679,7 +1679,7 @@ sdSS = {};
 })(jQuery);
 
 // be sure to initiate sdNav object in <head> of html with sdNAv = {};
-/* sdSmartNav 1.0.7 */
+/* sdSmartNav 1.0.8 (c) 2012 Adam Merrifield https://github.com/seyDoggy/sdSmartNav */
 (function($) {
     $.sdSmartNav = function(settings) {
 	
@@ -1690,7 +1690,8 @@ sdSS = {};
         sdNav.element = 'nav',
         sdNav.tier1 = '#toolbar_horizontal',
         sdNav.tier2 = '#toolbar_sub',
-        sdNav.tier3 = '#toolbar_vertical';
+        sdNav.tier3 = '#toolbar_vertical'
+		sdNav.drop = false;
 
 		// check for options
         if (settings) $.extend(sdNav, settings);
@@ -1754,6 +1755,37 @@ sdSS = {};
 				if (!(jq.add('body').width() <= '600')) tbsP.css('display','none');
 			}
         };
+		
+		// add drop down menus
+		if (sdNav.drop == true) {
+			// tb1 hover
+			if (sdNav.tb1.find(' > ul li > ul')) {
+				//Add 'hasChildren' class to menu li's
+				sdNav.tb1.find(' > ul li > ul').parent().addClass('hasChildren');
+			
+				//Menu hover animation
+				sdNav.tb1.find('ul li').hover(function(){
+					$(this).find("> ul").stop('true','true').animate({
+						opacity: 'toggle',
+						paddingTop: 'toggle'
+					});
+				});
+			};
+
+			// tb2 hover
+			if (sdNav.tb2.find(' > ul li > ul')) {
+				//Add 'hasChildren' class to menu li's
+				sdNav.tb2.find(' > ul li > ul').parent().addClass('hasChildren');
+			
+				//Menu hover animation
+				sdNav.tb2.find('ul li').hover(function(){
+					$(this).find("> ul").stop('true','true').animate({
+						opacity: 'toggle',
+						paddingTop: 'toggle'
+					});
+				});
+			};
+		};
 		
 		// PUBLIC VARIABLES
         if (tbvP.length) sdNav.tbvP = tbvP;
