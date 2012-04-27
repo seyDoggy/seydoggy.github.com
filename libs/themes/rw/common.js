@@ -9,9 +9,9 @@
 	1488	sdSetHeight - vertical alignment function
 	1524	SeydoggySlideshow - SS3
 	1681	sdSmartNav - Creates smart navigation
-	1796	sdVertAlign - vertical alignment function
-	1841	sdLightboxAlbums - prettyPhoto lightbox helper for RapidWeaver theme developers
-	1948	sdAlbumStyle - styles RapidWeaver albums
+	1806	sdVertAlign - vertical alignment function
+	1851	sdLightboxAlbums - prettyPhoto lightbox helper for RapidWeaver theme developers
+	1958	sdAlbumStyle - styles RapidWeaver albums
 */
 
 
@@ -1679,7 +1679,7 @@ sdSS = {};
 })(jQuery);
 
 // be sure to initiate sdNav object in <head> of html with sdNAv = {};
-/* sdSmartNav 1.0.8 (c) 2012 Adam Merrifield https://github.com/seyDoggy/sdSmartNav */
+/* sdSmartNav 1.0.9 (c) 2012 Adam Merrifield https://github.com/seyDoggy/sdSmartNav */
 (function($) {
     $.sdSmartNav = function(settings) {
 	
@@ -1758,12 +1758,12 @@ sdSS = {};
 		
 		// add drop down menus
 		if (sdNav.drop == true) {
-			// tb1 hover
+			// if tb1 has children
 			if (sdNav.tb1.find(' > ul li > ul')) {
-				//Add 'hasChildren' class to menu li's
+				//Add 'hasChildren' class to tb1 ul li's
 				sdNav.tb1.find(' > ul li > ul').parent().addClass('hasChildren');
 			
-				//Menu hover animation
+				// tb1 hover animation
 				sdNav.tb1.find('ul li').hover(function(){
 					$(this).find("> ul").stop('true','true').animate({
 						opacity: 'toggle',
@@ -1772,12 +1772,12 @@ sdSS = {};
 				});
 			};
 
-			// tb2 hover
+			// if tb2 has children
 			if (sdNav.tb2.find(' > ul li > ul')) {
-				//Add 'hasChildren' class to menu li's
+				//Add 'hasChildren' class to tb2 ul li
 				sdNav.tb2.find(' > ul li > ul').parent().addClass('hasChildren');
 			
-				//Menu hover animation
+				// tb2 hover animation
 				sdNav.tb2.find('ul li').hover(function(){
 					$(this).find("> ul").stop('true','true').animate({
 						opacity: 'toggle',
@@ -1785,6 +1785,16 @@ sdSS = {};
 					});
 				});
 			};
+
+			// if tb3 has children
+			if (sdNav.tb3.find(' > ul li > ul')) {
+				// show siblings ul and parent ul's of a.current
+				// to counter RWAlwaysDisplayFullNavigation : true
+				sdNav.tb3.find('a.current')
+					.siblings('ul').css('display','block')
+						.end().parents('ul').css('display','block');
+			};
+
 		};
 		
 		// PUBLIC VARIABLES
