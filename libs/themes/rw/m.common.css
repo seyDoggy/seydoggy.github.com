@@ -1,10 +1,10 @@
-@media screen and (max-width:768px) {
+@media only screen and (max-width : 1024px) {
 	body{min-width:100%;}
 	.wrapper{width:94%}
 	.wrapperOuter{min-width:100%;}
 	.wrapperInner{width:94%;padding: 0;}
 }
-@media screen and (max-width:600px) {
+@media only screen and (max-width : 600px) {
 	.sidebarContent,.sidebarWrapper{clear: both;float:none;padding: 1em 0;width:auto;}
 	.mainContent{background-image: none;border:none;float:none;width:auto;}
 	.headerContainer{display: none;}
@@ -15,7 +15,7 @@
 	/*seyDoggyGrid*/
 	.seydoggyGrid .three,.seydoggyGrid .four,.seydoggyGrid .five,.seydoggyGrid .six,.seydoggyGrid .two3rds,.seydoggyGrid .three4ths,.seydoggyGrid .four5ths,.seydoggyGrid .five6ths{float: none;width:auto;}
 }
-@media screen and (max-width:480px) {
+@media only screen and (max-width : 480px) {
 	.breadcrumbContainer{display: none;}
 	.filesharing-item{float: none;width:auto !important;}
 	/*EHVolver*/
