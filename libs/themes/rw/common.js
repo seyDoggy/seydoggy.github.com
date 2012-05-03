@@ -1990,3 +1990,124 @@ sdSS = {};
         if (mFrameImg.length) mFrameImg.addClass(opts.plusClass);
 	}
 })(jQuery);
+
+/*
+	Frehmwerk
+	(c) 2012, Adam Merrifield
+	http://seydesign.com/frehmwerk
+*/
+
+/* Theme JavaScript
+	Table of Contents
+==================================================
+	Variables
+	FUNCTIONS
+		SS3
+		General Styles
+		Toolbar Split/Vertical Options
+		ExtraContent
+		Albums
+*/
+(function($) {
+    $.frehmwerk = function(settings) {
+	
+		/* Variables
+		================================================== */
+		var jq = $([]),
+		div_inner = jq.add('div.inner'),
+		div_titleBlock = jq.add('div.titleBlock'),
+		div_top = jq.add('div.top'),
+		div_bottom = jq.add('div.bottom'),
+		div_wide = jq.add('div.wide'),
+		div_narrow = jq.add('div.narrow');
+		
+		/* FUNCTIONS
+		================================================== */
+		
+		/* General Styles
+		================================================== */
+		// wide/narrow height
+		$(window).load(function(){
+			div_wide.css('min-height',div_narrow.height());	
+		});
+		
+		// set left/right class on wide and narrow columns
+		if (div_wide.css('float') != 'none') {
+			div_wide.css('float') == 'right' ? div_wide.addClass('right') : div_wide.addClass('left');
+			div_narrow.css('float') == 'right' ? div_narrow.addClass('right') : div_narrow.addClass('left');
+		};
+
+		/* Toolbar Split/Vertical Options
+		================================================== */
+		var sdNavOptions = (function(){
+			var toolbar1 = 'toolbar1',
+				toolbar2 = 'toolbar2',
+				toolbar3 = 'toolbar3';
+			// invoke sdSmartNav
+			$.sdSmartNav({
+			    element:'nav',
+			    tier1:'.' + toolbar1,
+			    tier2:'.' + toolbar2,
+			    tier3:'.' + toolbar3,
+				drop:true
+			});
+			// if mobile
+			if (jq.add('body').width() <= '600') {
+				// remove additional tiers
+				sdNav.tb2.remove();
+				sdNav.tb3.remove();
+				// add link to navigation
+				$('<a href="#' + toolbar3 + '" title="menu" class="responsiveMenu"></a>').prependTo(div_titleBlock).css({
+					"background-image":"url(http://seydoggy.github.com/libs/themes/rw/plus.black.32.png)",
+					"background-repeat":"no-repeat",
+					"float":"right",
+					"height":"32px",
+					"margin-top":(div_titleBlock.height()/2)-16,
+					"margin-right":"0.75em",
+					"width":"32px"
+				});
+				// move nav after footer
+				sdNav.tb1.appendTo(div_inner.last()).attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'});
+			}
+		})();
+
+		/* ExtraContent
+		================================================== */
+		var sdExtracontent = (function(){
+			// EC 1 is handled in SS3
+			// VARIABLES
+			var EC = '#extraContainer',
+				ec = '.extracontent',
+				myEC = '#myExtraContent',
+				ecValue = 12,
+				i=2;
+			
+			/* ExtraContent (jQuery) VERSION: r1.4.2 */
+			for (i;i<=ecValue;i++) {
+				if ($(myEC + i).length) {
+					$(myEC + i + ' script').remove();
+					$(myEC + i).appendTo(EC + i).css('display','block');
+					$(EC + i).css('display','block').parent(ec).css('display','block');
+				}
+			}
+		})();
+		
+		/* Albums
+		================================================== */
+		var sdAlbums = (function(){
+			// invoke sdLightboxAlbums
+			$.sdLightboxAlbums({
+				css_file	:	'http://seydoggy.github.com/libs/prettyPhoto/jquery.prettyPhoto.css',
+				js_file		:	'http://seydoggy.github.com/libs/prettyPhoto/jquery.prettyPhoto.js',
+				animation_speed	:	'fast',
+				show_title		:	false,
+				theme			:	'light_square'
+			});
+
+			$.sdAlbumStyle({
+				plusClass : 'radiusAll'
+			});
+		})();
+
+    };
+})(jQuery);
