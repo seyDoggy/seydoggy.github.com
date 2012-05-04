@@ -75,7 +75,7 @@ jQuery(document).ready(function($){
 			// invoke sdSmartNav
 			$.sdSmartNav();
 			// if mobile
-			if (jq.add('body').width() <= '600') {
+			if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) {
 				// remove additional tiers
 				sdNav.tb2.remove();
 				sdNav.tb3.remove();
