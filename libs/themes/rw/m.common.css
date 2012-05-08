@@ -3,6 +3,9 @@
 	.wrapper{width:94%}
 	.wrapperOuter{min-width:100%;}
 	.wrapperInner{width:94%;padding: 0;}
+	/* Frehmwerk */
+	div.outer{min-width:100% !important;}
+	div.inner{width:94% !important;}
 }
 @media only screen and (max-width : 600px) {
 	.sidebarContent,.sidebarWrapper{clear: both;float:none;padding: 1em 0;width:auto;}
@@ -12,6 +15,9 @@
 	.sidebarWrapper .sidebarContent{padding: 1em;}
 	/*Havnit*/
 	.sidebarContent .sidebar{padding: 1em;}
+	/* Frehmwerk */
+	div.header{display:none;}
+	div.wide,div.narrow,div#footer,nav#breadcrumb{float:none !important;padding:2% !important;width:auto !important;}
 	/*seyDoggyGrid*/
 	.seydoggyGrid .three,.seydoggyGrid .four,.seydoggyGrid .five,.seydoggyGrid .six,.seydoggyGrid .two3rds,.seydoggyGrid .three4ths,.seydoggyGrid .four5ths,.seydoggyGrid .five6ths{float: none;width:auto;}
 }
