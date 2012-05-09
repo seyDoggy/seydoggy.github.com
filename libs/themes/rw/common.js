@@ -2074,7 +2074,7 @@ sdSS = {};
 				sdNav.tb1
 					.clone()
 						.attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'}).appendTo(div_inner.last())
-					.end().find('> ul').css('display','none');
+					.end().end().find('> ul').css('display','none');
 			}
 		})();
 
