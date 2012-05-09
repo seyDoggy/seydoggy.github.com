@@ -19,7 +19,7 @@
 	div.header{display:none;}
 	div.wide,div.narrow,div#footer,nav#breadcrumb{float:none !important;padding:2% !important;width:auto !important;}
 	/* alltr */
-	#alltr div.logo {float: none;}
+	#alltr a#logo {float: none;}
 	/*seyDoggyGrid*/
 	.seydoggyGrid .three,.seydoggyGrid .four,.seydoggyGrid .five,.seydoggyGrid .six,.seydoggyGrid .two3rds,.seydoggyGrid .three4ths,.seydoggyGrid .four5ths,.seydoggyGrid .five6ths{float: none;width:auto;}
 }
