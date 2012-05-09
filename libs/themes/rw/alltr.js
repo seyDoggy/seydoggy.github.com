@@ -57,7 +57,9 @@ jQuery(document).ready(function($){
 				.find('li:first-child > a').addClass('radiusTop')
 				.end().find('li:last-child > a').addClass('radiusBottom');
 			
-			if (sdNav.type >= 2) sdNav.tb1.add('div#extraContainer12').css('display','none');
+			if (sdNav.type >= 2) sdNav.tb1.css('display','none');
+			
+			if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) jq.add('div#extraContainer12').css('width','100%');
 				
 			// style toolbar 2
 			var sumWidth = 0;
