@@ -27,7 +27,6 @@ jQuery(document).ready(function($){
 		var jq = $([]),
 		div_inner_top = jq.add('div.inner.top'),
 		div_top = jq.add('div.top'),
-		div_myEC12 = jq.add('div#myExtraContent12'),
 		div_middle = jq.add('div.middle'),
 		div_wide = jq.add('div.wide'),
 		div_blog_entry = jq.add('div.blog-entry'),
@@ -58,9 +57,7 @@ jQuery(document).ready(function($){
 				.find('li:first-child > a').addClass('radiusTop')
 				.end().find('li:last-child > a').addClass('radiusBottom');
 			
-			if (sdNav.type >= 2) sdNav.tb1.css('display','none');
-			
-			if (!sdNav.tb1.length && div_myEC12.length) div_myEC12.wrap('<nav class="toolbar1"/>');
+			if (sdNav.type >= 2) sdNav.tb1.add('div#extraContainer12').css('display','none');
 				
 			// style toolbar 2
 			var sumWidth = 0;
