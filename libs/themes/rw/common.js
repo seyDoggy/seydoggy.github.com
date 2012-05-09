@@ -2043,7 +2043,18 @@ sdSS = {};
 		var sdNavOptions = (function(){
 			var toolbar1 = 'toolbar1',
 				toolbar2 = 'toolbar2',
-				toolbar3 = 'toolbar3';
+				toolbar3 = 'toolbar3',
+				dropVal = true;
+				if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) dropVal = false;
+				
+			// invoke sdSmartNav
+			$.sdSmartNav({
+			    element:'nav',
+			    tier1:'.' + toolbar1,
+			    tier2:'.' + toolbar2,
+			    tier3:'.' + toolbar3,
+				drop:dropVal
+			});
 			// if mobile
 			if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) {
 				// remove additional tiers
@@ -2062,14 +2073,6 @@ sdSS = {};
 				// move nav after footer
 				sdNav.tb1.appendTo(div_inner.last()).attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'});
 			}
-			// invoke sdSmartNav
-			$.sdSmartNav({
-			    element:'nav',
-			    tier1:'.' + toolbar1,
-			    tier2:'.' + toolbar2,
-			    tier3:'.' + toolbar3,
-				drop:true
-			});
 		})();
 
 		/* ExtraContent
