@@ -2071,7 +2071,9 @@ sdSS = {};
 					"width":"32px"
 				});
 				// move nav after footer
-				sdNav.tb1.appendTo(div_inner.last()).attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'});
+				sdNav.tb1
+					.clone().appendTo(div_inner.last()).attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'})
+					.end().find('ul').css('display','none');
 			}
 		})();
 
