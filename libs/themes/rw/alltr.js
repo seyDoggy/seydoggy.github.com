@@ -59,10 +59,13 @@ jQuery(document).ready(function($){
 			
 			if (sdNav.type >= 2) sdNav.tb1.css('display','none');
 			
-			if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) jq.add('div#extraContainer12').css({
-				'position':'static',
-				'width':'100%'
-			});
+			// style ExtraContent12
+			if (sdNav.type >= 2 || (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length)) {
+				jq.add('div#extraContainer12').css({
+					'position':'static',
+					'width':'100%'
+				}).addClass('boxShadowOuterTop');
+			}
 				
 			// style toolbar 2
 			var sumWidth = 0;
