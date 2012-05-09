@@ -2071,10 +2071,7 @@ sdSS = {};
 					"width":"32px"
 				});
 				// move nav after footer
-				sdNav.tb1
-					.clone()
-						.attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'}).appendTo(div_inner.last())
-					.end().end().find('> ul').css('display','none');
+				sdNav.tb1.appendTo(div_inner.last()).attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'});
 			}
 		})();
 
