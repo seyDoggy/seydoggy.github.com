@@ -55,7 +55,8 @@ jQuery(document).ready(function($){
 			sdNav.tb1.find('> ul > li > a').addClass('textShadowOuter')
 				.end().find('ul ul')
 				.find('li:first-child > a').addClass('radiusTop')
-				.end().find('li:last-child > a').addClass('radiusBottom');
+				.end().find('li:last-child > a').addClass('radiusBottom')
+				.end().find('li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
 			
 			if (sdNav.type >= 2) sdNav.tb1.css('display','none');
 			
@@ -76,7 +77,8 @@ jQuery(document).ready(function($){
 					.next().css('width',sdNav.tb2.width() - sumWidth - 2)
 				.end().end().end().end().find('ul ul')
 					.find('li:first-child > a').addClass('radiusTop')
-					.end().find('li:last-child > a').addClass('radiusBottom');
+					.end().find('li:last-child > a').addClass('radiusBottom')
+					.end().find('li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
 			
 			// when header is shown
 			if (div_top.find('div.header').css('display') == 'block') {
