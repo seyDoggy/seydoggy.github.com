@@ -142,7 +142,7 @@ jQuery(document).ready(function($){
 		================================================== */
 		var sidebar_fn = (function(){
 			// when sidebar and sidebar title is empty
-			if (!h3_sidebar_title.html().length && !h3_sidebar_title.next().length) div_sidebar.css('display','none');
+			if (!h3_sidebar_title.html().length && !div_sidebar.text().length) div_sidebar.css('display','none');
 			else if (!h3_sidebar_title.html().length) h3_sidebar_title.css('display','none');
 			
 			// when plugin_sidebar is !empty
@@ -160,6 +160,10 @@ jQuery(document).ready(function($){
 				if (nav_toolbar3.find('ul li').length <= 1) nav_toolbar3.find('a').addClass('radiusAll');
 				else nav_toolbar3.find('ul').find('li a').first().removeClass('radiusLeft radiusRight').addClass('radiusTop')
 						.end().end().find('li a').filter(':visible').last().removeClass('radiusLeft radiusRight').addClass('radiusBottom');
+				// show nested sub pages
+				if (nav_toolbar3.find(" > ul li > ul")) {
+					nav_toolbar3.find("a.current").siblings("ul").css("display", "block").end().parents("ul").css("display", "block")
+				}
 			}
 		})();
 		
