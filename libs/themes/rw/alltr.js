@@ -80,6 +80,11 @@ jQuery(document).ready(function($){
 					.end().find('li:last-child > a').addClass('radiusBottom')
 					.end().find('li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
 			
+			// resize li.last on window scale
+			$(window).resize(function(){
+				sdNav.tb2.find('> ul > li.last').css('width',sdNav.tb2.width() - sumWidth - 2);
+			});
+
 			// when header is shown
 			if (div_top.find('div.header').css('display') == 'block') {
 				sdNav.tb2.removeClass('radiusAll boxShadowOuter').addClass('radiusTop').css('margin-bottom','0')
@@ -100,6 +105,10 @@ jQuery(document).ready(function($){
 				sdNav.tb2.add(sdNav.tb3).ie9gradius();
 				// reduce the width of the .last item
 				sdNav.tb2.find('ul > li.last').css('width',sdNav.tb2.width() - sumWidth - 2.4);
+				// resize li.last on window scale
+				$(window).resize(function(){
+					sdNav.tb2.find('> ul > li.last').css('width',sdNav.tb2.width() - sumWidth - 2.4);
+				});
 			}
 			
 		})();
