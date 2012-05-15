@@ -151,7 +151,7 @@ jQuery(document).ready(function($){
 		================================================== */
 		var sidebar_fn = (function(){
 			// when sidebar and sidebar title is empty
-			if (!h3_sidebar_title.html().length && !div_sidebar.contents().not(h3_sidebar_title).length) div_sidebar.css('display','none');
+			if (!h3_sidebar_title.html().length && !div_sidebar.contents().not('h3#sidebar_title, div[id*="myExtraContent"]').length) div_sidebar.css('display','none');
 			else if (!h3_sidebar_title.html().length) h3_sidebar_title.css('display','none');
 			
 			// when plugin_sidebar is !empty
