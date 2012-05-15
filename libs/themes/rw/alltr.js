@@ -52,8 +52,7 @@ jQuery(document).ready(function($){
 		================================================== */
 		var top_fn = (function(){
 			// style toolbar 1
-			sdNav.tb1.find('> ul > li > a').addClass('textShadowOuter')
-				.end().find('ul ul')
+			sdNav.tb1.find('ul ul')
 				.find('li:first-child > a').addClass('radiusTop')
 				.end().find('li:last-child > a').addClass('radiusBottom')
 				.end().find('li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
