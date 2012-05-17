@@ -149,12 +149,16 @@ jQuery(document).ready(function($){
 		/* Sidebar Functions
 		================================================== */
 		var sidebar_fn = (function(){
-			// strip comments from sidebar
-			var div_sidebar_html = div_sidebar.html();
-			div_sidebar_html = $.trim(div_sidebar_html.replace(/<!--(.*?)-->/ig, ''));
-			div_sidebar.html(div_sidebar_html);
+			// look for comments in sidebar
+			var div_sidebar_comments = div_sidebar.contents().filter(function(){
+				return this.nodeType == 8;
+	        });
+			// look for whitespace in sidebar
+			var div_sidebar_whitespace = div_sidebar.contents().filter(function(){
+				return this.nodeType == 3;
+	        });
 			// when sidebar and sidebar title is empty
-			if (!h3_sidebar_title.html().length && !div_sidebar.contents().not('h3#sidebar_title, div[id*="myExtraContent"]').length) div_sidebar.css('display','none');
+			if (!h3_sidebar_title.html().length && !div_sidebar.contents().not('h3#sidebar_title').not(div_sidebar_comments).not(div_sidebar_whitespace).length) div_sidebar.css('display','none');
 			else if (!h3_sidebar_title.html().length) h3_sidebar_title.css('display','none');
 			
 			// when plugin_sidebar is !empty
