@@ -1522,7 +1522,7 @@ RwGet = {
 // initiate sdSS object
 sdSS = {};
 
-/* SeydoggySlideshow 3.1.2 */
+/* SeydoggySlideshow 3.1.3 */
 (function($) {
     $.SeydoggySlideshow = function(settings) {
 
