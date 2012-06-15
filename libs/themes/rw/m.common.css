@@ -6,6 +6,7 @@
 	/* Frehmwerk */
 	div.outer{min-width:100% !important;}
 	div.inner{width:94% !important;}
+	.pageHeader{background-size:cover;}
 }
 @media only screen and (max-width : 600px) {
 	.sidebarContent,.sidebarWrapper{clear: both;float:none;padding: 1em 0;width:auto;}
