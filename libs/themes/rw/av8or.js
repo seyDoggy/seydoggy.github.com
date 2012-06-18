@@ -70,8 +70,16 @@ jQuery(document).ready(function($){
 				else nav_toolbar3.find('ul').find('li a').first().removeClass('radiusLeft radiusRight').addClass('radiusTop')
 						.end().end().find('li a').filter(':visible').last().removeClass('radiusLeft radiusRight').addClass('radiusBottom');
 			}
-			// when blog page make each post separate
-			if (div_blog_entry.length) div_blog_entry.addClass('radiusAll boxShadowOuter');
+			// blog styles
+			if (div_blog_entry.length) {
+				// make each post separate
+				// div_blog_entry.addClass('radiusAll boxShadowOuter');
+				div_blog_entry.each(function(){
+					$(this).wrap('<div class="blog-entry-wrapper radiusAll boxShadowOuter"/>');
+					$(this).find('h1.blog-entry-title').insertBefore($(this)).addClass('radiusTop');
+					$(this).find('div.blog-entry-date').insertAfter($(this)).addClass('radiusBottom');
+				});
+			}
 		})();
 	})();
 });
