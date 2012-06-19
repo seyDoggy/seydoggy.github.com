@@ -47,8 +47,9 @@ jQuery(document).ready(function($){
 			// style toolbar 1
 			sdNav.tb1.find('ul ul')
 				.find('li:first-child > a').addClass('radiusTop')
-				.end().find('li:last-child > a').addClass('radiusBottom');
-				
+				.end().find('li:last-child > a').addClass('radiusBottom')
+				.end().find('li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
+
 			// if IE9
 			if (sdNav.IE9 == true) {
 				// mask bleed of gradient items with radius
@@ -64,11 +65,6 @@ jQuery(document).ready(function($){
 			sdNav.tb2.find('ul ul')
 				.find('li:first-child > a').addClass('radiusTop')
 				.end().find('li:last-child > a').addClass('radiusBottom');
-			
-			// style toolbar 3
-			if (sdNav.tb3.find('ul li').length <= 1) sdNav.tb3.find('a').addClass('radiusAll');
-			else sdNav.tb3.find('ul').find('li a').first().addClass('radiusTop')
-					.end().end().find('li a').filter(':visible').last().addClass('radiusBottom');
 			
 			// style toolbar 3 (responsive)
 			if ($('nav#toolbar3').length) {
