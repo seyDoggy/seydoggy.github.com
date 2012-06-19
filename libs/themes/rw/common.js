@@ -2102,7 +2102,8 @@ sdSS = {};
 					"width":"32px"
 				});
 				// move nav after footer
-				sdNav.tb1.appendTo(div_inner.last()).attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'});
+				jq.add('<div class="outer last"><div class="inner"></div></div>').insertAfter(div_inner.last());
+				sdNav.tb1.appendTo(jq.add('div.outer.last > div.inner')).attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'});
 			}
 		})();
 
