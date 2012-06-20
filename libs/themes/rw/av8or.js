@@ -89,6 +89,9 @@ jQuery(document).ready(function($){
 		/* Responsive Functions
 		================================================== */
 		responsive_fn = (function(){
+			// title/slogan styles if less then 1024 and @media query is used
+			if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) jq.add('hgroup.titles').css('text-align','left');
+			
 			// style toolbar 3 (responsive)
 			if ($('nav#toolbar3').length) {
 				var nav_toolbar3 = jq.add('nav#toolbar3');
