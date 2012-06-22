@@ -21,6 +21,8 @@
 	div.wide,div.narrow,div#footer,nav#breadcrumb{float:none !important;padding:2% !important;width:auto !important;}
 	/* alltr */
 	#alltr a#logo {float: none;}
+	/* av8or */
+	#av8or h2#site_slogan {white-space: normal;}
 	/*seyDoggyGrid*/
 	.seydoggyGrid .three,.seydoggyGrid .four,.seydoggyGrid .five,.seydoggyGrid .six,.seydoggyGrid .two3rds,.seydoggyGrid .three4ths,.seydoggyGrid .four5ths,.seydoggyGrid .five6ths{float: none;width:auto;}
 }
