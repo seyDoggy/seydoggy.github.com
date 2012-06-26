@@ -25,6 +25,9 @@ jQuery(document).ready(function($){
 		/* Variables
 		================================================== */
 		var jq = $([]),
+		div_titleBlock = jq.add('div.titleBlock'),
+		h1_site_title = div_titleBlock.find('h1#site_title'),
+		h2_site_slogan = div_titleBlock.find('h2#site_slogan'),
 		div_wide = jq.add('div.wide'),
 		div_narrow = jq.add('div.narrow'),
 		div_bottom = jq.add('div.bottom');
@@ -57,7 +60,8 @@ jQuery(document).ready(function($){
 				sdNav.tb2.find('li').ie9gradius();
 				sdNav.tb3.find('a').css('border-radius','0');
 			}
-			
+			// title styles
+			if (!h1_site_title.html() && !h2_site_slogan.html()) div_titleBlock.css('display','none');
 		})();
 		/* Middle Functions
 		================================================== */
