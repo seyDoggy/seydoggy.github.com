@@ -172,7 +172,7 @@ jQuery(document).ready(function($){
 			// style toolbar 3 (responsive)
 			if ($('nav#toolbar3').length) {
 				var nav_toolbar3 = jq.add('nav#toolbar3');
-				nav_toolbar3.addClass('radiusAll');
+				nav_toolbar3.addClass('radiusAll').css('display','block');
 				if (nav_toolbar3.find('ul li').length <= 1) nav_toolbar3.find('a').addClass('radiusAll');
 				else nav_toolbar3.find('ul').find('li a').first().removeClass('radiusLeft radiusRight').addClass('radiusTop')
 						.end().end().find('li a').filter(':visible').last().removeClass('radiusLeft radiusRight').addClass('radiusBottom');
