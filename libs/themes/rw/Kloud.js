@@ -76,6 +76,9 @@ jQuery(document).ready(function($){
 				div_middle.addClass('radiusTop');
 				div_wide_left.addClass('radiusTopLeft');
 				div_wide_right.addClass('radiusTopRight');
+			} else {
+				// remove top margin if EC3 is present
+				div_middle.css('margin-top','0');
 			}
 
 			// show div.bottom if div#footer or nav#breadcrumb is propogated
