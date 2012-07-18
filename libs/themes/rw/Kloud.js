@@ -114,6 +114,24 @@ jQuery(document).ready(function($){
 				}
 			}
 
+			// when blog page (main content)
+			if (div_blog_entry.length) {
+				// add entry icons with font-awesome
+				div_blog_entry
+					.find('h1.blog-entry-title a').prepend('<i class="icon-pencil"/> &nbsp;')
+					.end().find('div.blog-entry-date').prepend('<i class="icon-calendar"/> &nbsp;');
+			};
+			
+			// when file sharing page
+			if (div_filesharing_item.length) {
+				// add file sharing icons with font-awesome
+				div_filesharing_item.find('div.filesharing-item-title a').prepend('<i class="icon-download-alt"/> &nbsp;');
+			};
+			
+		})();
+		/* SIdebar Functions
+		================================================== */
+		var sidebar_fn = (function(){
 			// style toolbar 3
 			if (sdNav.tb3.find('ul li').length <= 1) sdNav.tb3.find('a').addClass('radiusAll');
 			else sdNav.tb3.find('ul').find('li a').first().addClass('radiusTop')
@@ -123,7 +141,7 @@ jQuery(document).ready(function($){
 				sdNav.tb3.find(' > ul li > ul').parent().addClass('hasChildren');
 				sdNav.tb3.find('li.hasChildren > a').append(' &nbsp; <i class="icon-caret-down"/>');
 			}
-
+			
 			// style toolbar 3 (responsive)
 			if ($('nav#toolbar3').length) {
 				var nav_toolbar3 = jq.add('nav#toolbar3');
@@ -132,14 +150,9 @@ jQuery(document).ready(function($){
 				else nav_toolbar3.find('ul').find('li a').first().removeClass('radiusLeft radiusRight').addClass('radiusTop')
 						.end().end().find('li a').filter(':visible').last().removeClass('radiusLeft radiusRight').addClass('radiusBottom');
 			}
-			
-			// when blog page
+			// when blog page (sidebar)
 			if (div_blog_entry.length) {
-				// add entry icons with font-awesome
-				div_blog_entry
-					.find('h1.blog-entry-title a').prepend('<i class="icon-pencil"/> &nbsp;')
-					.end().find('div.blog-entry-date').prepend('<i class="icon-calendar"/> &nbsp;');
-				// add sidebar icons with font-awesome
+				// add blog sidebar icons with font-awesome
 				group_plugin_sidebar.prepend('<div class="before"><i/></div>');
 				div_plugin_sidebar
 					.find('div#blog-categories div.before')
@@ -155,13 +168,6 @@ jQuery(document).ready(function($){
 						.find('i').addClass('icon-book')
 						.end().append('&nbsp; Feeds:');
 			};
-			
-			// when file sharing page
-			if (div_filesharing_item.length) {
-				// add file sharing icons with font-awesome
-				div_filesharing_item.find('div.filesharing-item-title a').prepend('<i class="icon-download-alt"/> &nbsp;');
-			};
-			
 		})();
 	})();
 });
