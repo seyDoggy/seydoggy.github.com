@@ -1707,6 +1707,26 @@ sdSS = {};
 
         // add links to slides
         if (typeof sdSS.slideLinks != "undefined") sdSlideshow.find('div.pageHeader').rwAddLinks(sdSS.slideLinks);
+        
+        // IE alpha support
+        if (sdSlideshow.find('img')) {
+	        sdSlideshow.find('img').each(function(){
+				if ($(this).src.substr($(this).length-4) === '.png' || $(this).src.substr(imgSrc.length-4) === '.PNG') {
+					$(this).style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='crop',src='" + $(this).src + "')";
+				};
+			});
+			// var i;
+			// for (i in document.images) {
+			// 	if (document.images[i].src) {
+			// 		var imgSrc = document.images[i].src;
+			// 		if (imgSrc.substr(imgSrc.length-4) === '.png' || imgSrc.substr(imgSrc.length-4) === '.PNG') {
+			// 			document.images[i].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='crop',src='" + imgSrc + "')";
+			// 		}
+			// 	}
+			// }	        
+        };
+        
+
     }
 })(jQuery);
 
