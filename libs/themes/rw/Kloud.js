@@ -135,7 +135,7 @@ jQuery(document).ready(function($){
 			if (div_blog_entry.length) {
 				// add entry icons with font-awesome
 				div_blog_entry
-					.find('h1.blog-entry-title').prepend('<i class="icon-pencil"/> &nbsp;')
+					.find('h1.blog-entry-title a').prepend('<i class="icon-pencil"/> &nbsp;')
 					.end().find('div.blog-entry-date').prepend('<i class="icon-calendar"/> &nbsp;');
 				// add sidebar icons with font-awesome
 				group_plugin_sidebar.prepend('<div class="before"><i/></div>');
