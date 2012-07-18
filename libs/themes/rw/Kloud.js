@@ -29,6 +29,7 @@ jQuery(document).ready(function($){
 		div_EC4 = jq.add('div#myExtraContent4'),
 		div_EC5 = jq.add('div#myExtraContent5'),
 		div_middle = jq.add('div.middle').not('div.upper,div.lower'),
+		div_wide = jq.add('div.wide').not('div.left,div.right'),
 		div_wide_left = jq.add('div.wide.left'),
 		div_wide_right = jq.add('div.wide.right'),
 		div_narrow = jq.add('div.narrow'),
@@ -80,6 +81,7 @@ jQuery(document).ready(function($){
 				div_middle.addClass('radiusTop');
 				div_wide_left.addClass('radiusTopLeft');
 				div_wide_right.addClass('radiusTopRight');
+				div_wide.addClass('radiusTop');
 			} else {
 				// remove top margin if EC3 is present
 				div_middle.css('margin-top','0');
