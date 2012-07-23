@@ -21,7 +21,7 @@ jQuery(document).ready(function($){
 	================================================== */
 	$.frehmwerk();
 	
-	var theme_default_Functions = (function(){
+	var av8or_default_Functions = (function(){
 		/* Variables
 		================================================== */
 		var jq = $([]),
