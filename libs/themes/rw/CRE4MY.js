@@ -54,6 +54,10 @@ jQuery(document).ready(function($){
 
 		/* @group toolbar split/vertical options */
 		var sdNavOptions = (function(){
+			// test for legacy CRE4MY v4.7.0 (r7)
+			if (!$('div#extraContainer12').length) {
+				dropVal = false;
+			}
 			// invoke sdSmartNav
 			$.sdSmartNav({
 				drop:dropVal
