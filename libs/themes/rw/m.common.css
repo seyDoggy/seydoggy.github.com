@@ -23,6 +23,9 @@
 	#alltr a#logo {float: none;}
 	/* av8or */
 	#av8or h2#site_slogan {white-space: normal;}
+	/* Nuvem */
+	#Nuvem hgroup.titles {font-size:85%;padding-top:0.75em}
+	#Nuvem hgroup.titles,#Nuvem h1#site_title,#Nuvem h2#site_slogan {display:block;}
 	/*seyDoggyGrid*/
 	.seydoggyGrid .three,.seydoggyGrid .four,.seydoggyGrid .five,.seydoggyGrid .six,.seydoggyGrid .two3rds,.seydoggyGrid .three4ths,.seydoggyGrid .four5ths,.seydoggyGrid .five6ths{float: none;width:auto;}
 }
