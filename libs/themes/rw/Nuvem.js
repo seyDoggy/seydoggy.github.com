@@ -62,7 +62,7 @@ jQuery(document).ready(function($){
 				.find('ul').removeClass('radiusBottom').addClass('radiusAll')
 				.find('li:first-child, li:first-child > a').addClass('radiusTop')
 				.end().end().find('li:last-child, li:last-child > a').addClass('radiusBottom')
-				.end().end().find('li:last-child, li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
+				.end().find('li:last-child, li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
 
 			// set min-width of drop down to width of parent
 			sdNav.tb1.find(' ul ul').add(sdNav.tb2.find(' ul ul')).each(function(){
