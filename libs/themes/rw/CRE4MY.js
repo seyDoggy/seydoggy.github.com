@@ -119,7 +119,10 @@ jQuery(document).ready(function($){
 					.end().find('ul li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
 				
 				// set min-width of drop down to width of parent
-				sdNav.tb1.find(' ul ul').add(sdNav.tb2.find(' ul ul')).each(function(){
+				sdNav.tb1.find(' ul ul').each(function(){
+					$(this).css('min-width',$(this).parent().outerWidth(true)+1);
+				});
+				sdNav.tb2.find(' ul ul').each(function(){
 					$(this).css('min-width',$(this).parent().outerWidth(true));
 				});
 			}
