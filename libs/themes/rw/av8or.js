@@ -72,14 +72,6 @@ jQuery(document).ready(function($){
 				.find('li:first-child > a').addClass('radiusTop')
 				.end().find('li:last-child > a').addClass('radiusBottom');
 			
-			// style toolbar 3 (responsive)
-			if ($('nav#toolbar3').length) {
-				var nav_toolbar3 = jq.add('nav#toolbar3');
-				nav_toolbar3.addClass('radiusAll');
-				if (nav_toolbar3.find('ul li').length <= 1) nav_toolbar3.find('a').addClass('radiusAll');
-				else nav_toolbar3.find('ul').find('li a').first().removeClass('radiusLeft radiusRight').addClass('radiusTop')
-						.end().end().find('li a').filter(':visible').last().removeClass('radiusLeft radiusRight').addClass('radiusBottom');
-			}
 			// blog styles
 			if (div_blog_entry.length) {
 				// make each post separate
