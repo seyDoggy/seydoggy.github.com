@@ -49,5 +49,5 @@ Thumbs.db
 ################
 git.log.format
 .tm_properties
-.exclude
-.include
+*.exclude
+*.include
