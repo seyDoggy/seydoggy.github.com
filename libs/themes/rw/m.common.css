@@ -28,6 +28,22 @@
 	#Nuvem hgroup.titles,#Nuvem h1#site_title,#Nuvem h2#site_slogan {display:block;}
 	/*seyDoggyGrid*/
 	.seydoggyGrid .three,.seydoggyGrid .four,.seydoggyGrid .five,.seydoggyGrid .six,.seydoggyGrid .two3rds,.seydoggyGrid .three4ths,.seydoggyGrid .four5ths,.seydoggyGrid .five6ths{float: none;width:auto;}
+	/* menu button */
+	a.responsiveMenu {
+		border-radius: 5px;
+		background-image: url('lines.png');
+		background-image: url('lines.png'), -o-linear-gradient(90deg , rgb(25,25,25) 0%, rgb(76,76,76) 100%);
+		background-image: url('lines.png'), -moz-linear-gradient(90deg , rgb(25,25,25) 0%, rgb(76,76,76) 100%);
+		background-image: url('lines.png'), -webkit-linear-gradient(90deg , rgb(25,25,25) 0%, rgb(76,76,76) 100%);
+		background-image: url('lines.png'), -ms-linear-gradient(90deg , rgb(25,25,25) 0%, rgb(76,76,76) 100%);
+		background-image: url('lines.png'), linear-gradient(90deg , rgb(25,25,25) 0%, rgb(76,76,76) 100%);
+		background-repeat:no-repeat;
+		background-position: center center;
+		float: right;
+		height: 32px;
+		margin-right: 0.75em;
+		width: 36px;
+	}
 }
 @media only screen and (max-width : 480px) {
 	.breadcrumbContainer{display: none;}
