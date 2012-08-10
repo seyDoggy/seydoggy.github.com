@@ -2243,9 +2243,11 @@ sdSS = {};
 				sdNav.tb2.remove();
 				sdNav.tb3.remove();
 				// add link to navigation
-				$('<a href="#' + toolbar3 + '" title="menu" class="responsiveMenu"></a>').prependTo(div_titleBlock).css({
+				jq.add('<a href="#' + toolbar3 + '" title="menu" class="responsiveMenu"><i></i></a>').prependTo(div_titleBlock).css({
 					"margin-top":(div_titleBlock.height()/2)-16,
 				});
+				// if theme supports Font Awesome and has styles for it...
+				if (jq.add('a.responsiveMenu i').css('position') == 'relative') jq.add('a.responsiveMenu i').addClass('icon-reorder icon-large');
 				// move nav after footer
 				jq.add('<div class="outer last"><div class="inner"></div></div>').insertAfter(div_inner.last());
 				sdNav.tb1.appendTo(jq.add('div.outer.last > div.inner')).attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'});
