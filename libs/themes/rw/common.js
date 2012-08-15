@@ -2193,6 +2193,13 @@ sdSS = {};
 */
 (function($) {
 	$.frehmwerk = function(settings) {
+		// OPTIONS
+		var fw_opts = {
+			albumClass : ''
+		}
+
+		// check for options
+		if (settings) $.extend(fw_opts, settings);
 
 		/* Variables
 		================================================== */
@@ -2289,7 +2296,7 @@ sdSS = {};
 			});
 
 			$.sdAlbumStyle({
-				plusClass : 'radiusAll'
+				plusClass : fw_opts.albumClass
 			});
 		})();
 
