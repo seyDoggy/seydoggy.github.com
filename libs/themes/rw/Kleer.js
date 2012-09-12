@@ -199,8 +199,8 @@ jQuery(document).ready(function($){
 		var sdAlbums = (function(){
 			// invoke sdLightboxAlbums
 			$.sdLightboxAlbums({
-				css_file	:	'http://seydoggy.github.com/libs/prettyPhoto/jquery.prettyPhoto.css',
-				js_file		:	'http://seydoggy.github.com/libs/prettyPhoto/jquery.prettyPhoto.js',
+				css_file	:	'https://d2c8zg9eqwmdau.cloudfront.net/prettyphoto/jquery.prettyPhoto.css',
+				js_file		:	'https://d2c8zg9eqwmdau.cloudfront.net/prettyphoto/jquery.prettyPhoto.js',
 				animation_speed	:	'fast',
 				show_title		:	false,
 				theme			:	'light_square'
