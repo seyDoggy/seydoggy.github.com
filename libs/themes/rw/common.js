@@ -2234,7 +2234,7 @@ sdSS = {};
 				toolbar2 = 'toolbar2',
 				toolbar3 = 'toolbar3',
 				dropVal = true;
-				if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) dropVal = false;
+				if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length || sdNav.drop == false) dropVal = false;
 
 			// invoke sdSmartNav
 			$.sdSmartNav({
