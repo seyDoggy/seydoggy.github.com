@@ -55,7 +55,7 @@ jQuery(document).ready(function($){
 				.end().find('li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
 
 			// if IE9
-			if (sdNav.IE9 == true) {
+			if (sdNav.IE9 === true) {
 				// mask bleed of gradient items with radius
 				sdNav.tb2.find('li').ie9gradius();
 				sdNav.tb3.find('a').css('border-radius','0');
