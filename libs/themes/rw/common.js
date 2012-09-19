@@ -1672,7 +1672,7 @@ RwGet = {
 /* END sdSetHeight */
 
 // initiate sdSS object
-if (sdSS === 'undefined') sdSS = {};
+if (!window.sdSS) sdSS = {};
 
 /* SeydoggySlideshow 3.2.1 */
 (function($) {
