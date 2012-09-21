@@ -70,7 +70,7 @@ jQuery(document).ready(function($){
 			// style toolbar 2
 			var sumWidth = 0;
 			sdNav.tb2.find('> ul').children().each(function(){
-				sumWidth += $(this).outerWidth(true);
+				sumWidth += $(this).width();
 			}).end().find('> li:first-child > a').addClass('radiusLeft')
 				.end().find('> li').last().after('<li class="last radiusRight"/>')
 					.next().css('width',sdNav.tb2.width() - sumWidth - 2)
@@ -83,6 +83,18 @@ jQuery(document).ready(function($){
 			$(window).resize(function(){
 				sdNav.tb2.find('> ul > li.last').css('width',sdNav.tb2.width() - sumWidth - 2);
 			});
+
+			// support for alltr v1.2.2 or <
+			if (sdNav.tb2.find('> ul').css('position') != 'relative') {
+				sdNav.tb2
+					.find('> ul').css('position','relative')
+						.find('> li').css('display','inline-block')
+						.end().find('> li.last').css({
+							'position':'absolute',
+							'top':'0',
+							'right':'0'
+						});
+			}
 
 			// when header is shown
 			if (div_top.find('div.header').css('display') == 'block') {
