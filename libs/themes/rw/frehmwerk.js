@@ -112,7 +112,7 @@
 			// invoke sdLightboxAlbums
 			$.sdLightboxAlbums({
 				css_file	:	'https://d2c8zg9eqwmdau.cloudfront.net/prettyphoto/jquery.prettyPhoto.css',
-				css_local	:	RwGet.pathto('options/prettyPhoto.css'),
+				css_local	:	RwGet.pathto('options/jquery.prettyPhoto.css'),
 				js_file		:	'https://d2c8zg9eqwmdau.cloudfront.net/prettyphoto/jquery.prettyPhoto.js',
 				js_local	:	RwGet.pathto('options/jquery.prettyPhoto.js'),
 				animation_speed	:	'fast',
