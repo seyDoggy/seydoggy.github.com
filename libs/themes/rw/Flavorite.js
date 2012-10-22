@@ -28,7 +28,7 @@ jQuery(document).ready(function($){
 		
 		// FUNCTIONS
 		
-		/* @group general styles */
+		// GENERAL STYLES
 		// invoke slideshow
 		$.SeydoggySlideshow();
 		
@@ -37,9 +37,7 @@ jQuery(document).ready(function($){
 		// !hide !empty sidebar
 		if (sTitle.html().length || sidebar.html().length) sContent.css('display','block');
 		
-		/* @end */
-		
-		/* @group toolbar split/vertical options */
+		// TOOLBAR SPLIT/VERTICAL OPTIONS
 		var sdNavOptions = (function(){
 			// invoke sdSmartNav
 			$.sdSmartNav();
@@ -58,7 +56,9 @@ jQuery(document).ready(function($){
 					"width":"32px"
 				});
 				// move nav after footer
-				sdNav.tb1.insertAfter('.footerNormal').attr('id','toolbar_vertical').css('margin-top','2em');
+				sdNav.tb1.insertAfter('.footerNormal').attr('id','toolbar_vertical')
+					.css({'display':'block','margin-top':'2em'})
+					.find('>ul').css({'display':'block'});
 				// capture first and last items for toolbar_vertical
 				sdNav.tb1.find('ul:first li:last a').css('border-style', 'none');
 				sdNav.tb1.find('ul a:first').addClass('firstLink');
@@ -72,9 +72,8 @@ jQuery(document).ready(function($){
 				sdNav.tb3.find('ul:first li:last a').addClass('lastLink');
 			}
 		})();
-		/* @end */
 
-		/* @group title vertical alignment */
+		// TITLE VERTICAL ALIGNMENT
 		var sdTitleAlign = (function(){
 			logoImg.css('padding-top','0').sdVertAlign(siteHeader);
 			title.css('padding-top','0').sdVertAlign(siteHeader);
@@ -83,9 +82,8 @@ jQuery(document).ready(function($){
 				sdNav.tb1.css('padding-top','0').sdVertAlign(siteHeader);
 			}
 		})();
-		/* @end */
 
-		/* @group ExtraContent */
+		// EXTRACONTENT
 		var sdExtracontent = (function(){
 			// EC 1 is handled in SS3
 			// VARIABLES
@@ -106,9 +104,8 @@ jQuery(document).ready(function($){
 				}
 			}
 		})();
-		/* @end */
 
-		/* @group various page style */
+		// VARIOUS PAGE STYLE
 		var sdPageStyles = (function(){
 			// styles for File Sharing page
 			if (fsI.length) fsI.width(fsI.parent().outerWidth(true) / 3 - 45).addClass('contentBox').css('padding','1em').sdSetHeight(fsI,0);
@@ -118,9 +115,8 @@ jQuery(document).ready(function($){
 			if (fsI.length || bEntry.length)
 				mContentInner.css({ 'background-color':'transparent', 'padding':'0', 'border-style':'none','box-shadow':'none' });
 		})();
-		/* @end */
 		
-		/* @group Album */
+		// ALBUM
 		var sdAlbums = (function(){
 			// invoke sdLightboxAlbums
 			$.sdLightboxAlbums({
@@ -135,6 +131,5 @@ jQuery(document).ready(function($){
 				plusClass : 'radiusAll'
 			});
 		})();
-		/* @end */
 	})();
 });
