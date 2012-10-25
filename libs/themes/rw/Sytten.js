@@ -55,16 +55,6 @@ jQuery(document).ready(function($){
 		================================================== */
 		var nav_fn = (function(){
 
-			// set min-width of first drop-down to that of parent
-			var nav_minWidth = function(nav){
-				nav.find('> ul > li').hover(function(){
-					$(this).find('> ul')
-					.css('min-width',$(this).outerWidth(true));
-				});
-			};
-			nav_minWidth(sdNav.tb1);
-			nav_minWidth(sdNav.tb2);
-
 			// add animation when toolbar1 > ul > li is hovered over
 			var nav_animate = function(elem,plusClass,effect,value){
 				if (effect === 0) {
@@ -119,6 +109,16 @@ jQuery(document).ready(function($){
 				.end().end().find('li:last-child, li:last-child > a').addClass('radiusBottom')
 				.end().find('li:last-child, li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
 			
+			// set min-width of first drop-down to that of parent
+			var nav_minWidth = function(nav){
+				nav.find('> ul > li').hover(function(){
+					$(this).find('> ul')
+					.css('min-width',$(this).find('>a').outerWidth(true));
+				});
+			};
+			nav_minWidth(sdNav.tb1);
+			nav_minWidth(sdNav.tb2);
+
 			// style toolbar 3
 			// if not IE9
 			if (sdNav.IE9 !== true) {
