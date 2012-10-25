@@ -120,10 +120,18 @@ jQuery(document).ready(function($){
 				.end().find('li:last-child, li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
 			
 			// style toolbar 3
-			// add classes to menu pills
-			sdNav.tb3.find('ul li a').addClass('radiusAll boxShadowOuter');
-			// add end cap to menu pills
-			jq.add('<i class="endCap icon-play radiusLeft"/>').prependTo(sdNav.tb3.find('ul li a'));
+			// if not IE9
+			if (sdNav.IE9 !== true) {
+				// add classes to menu pills
+				sdNav.tb3.find('ul li a').addClass('radiusAll boxShadowOuter');
+				// add end cap to menu pills
+				jq.add('<i class="endCap icon-play radiusLeft"/>').prependTo(sdNav.tb3.find('ul li a'));	
+			} else {
+				// add classes to menu pills
+				sdNav.tb3.find('ul li a').addClass('boxShadowOuter');
+				// add end cap to menu pills
+				jq.add('<i class="endCap icon-play"/>').prependTo(sdNav.tb3.find('ul li a'));	
+			}
 			//Add 'hasChildren' class to menu pills
 			sdNav.tb3.find(' ul > li > ul').parent().addClass('hasChildren')
 				.find('> a').append(' &nbsp; <i class="icon-caret-down"/>');
