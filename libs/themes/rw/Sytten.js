@@ -61,12 +61,18 @@ jQuery(document).ready(function($){
 					elem
 						.find('> ul > li').hover(
 							function () {
+								// add class
 								$(this).find('>a').addClass(plusClass)
-									.animate({top:value}, 'fast');
+									// animate
+									.end().animate({top:value}, 'fast')
+									// set min-width of first drop-down to that of parent
+									.find('> ul')
+										.css('min-width',$(this).find('>a').outerWidth(true));
 							},
 							function () {
+								// restore
 								$(this).find('>a').removeClass(plusClass)
-									.animate({top:'0'}, 'fast');
+									.end().animate({top:'0'}, 'fast');
 							}
 						);
 				} else if (effect === 1) {
@@ -75,11 +81,14 @@ jQuery(document).ready(function($){
 						.find('> ul > li').hover(
 							function () {
 								fs = $(this).css('font-size');
+								// add class
 								$(this).addClass(plusClass)
+									// animate
 									.animate({fontSize:value}, 'fast');
 								return fs;
 							},
 							function () {
+								// restore
 								$(this).removeClass(plusClass)
 									.animate({fontSize:fs}, 'fast');
 							}
@@ -88,9 +97,14 @@ jQuery(document).ready(function($){
 					elem
 						.find('> ul > li').hover(
 							function () {
-								$(this).find('>a').addClass(plusClass);
+								// add class
+								$(this).find('>a').addClass(plusClass)
+									// set min-width of first drop-down to that of parent
+									.end().find('> ul')
+										.css('min-width',$(this).find('>a').outerWidth(true));
 							},
 							function () {
+								// restore
 								$(this).find('>a').removeClass(plusClass);
 							}
 						);
@@ -109,28 +123,18 @@ jQuery(document).ready(function($){
 				.end().end().find('li:last-child, li:last-child > a').addClass('radiusBottom')
 				.end().find('li:last-child, li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
 			
-			// set min-width of first drop-down to that of parent
-			var nav_minWidth = function(nav){
-				nav.find('> ul > li').hover(function(){
-					$(this).find('> ul')
-					.css('min-width',$(this).find('>a').outerWidth(true));
-				});
-			};
-			nav_minWidth(sdNav.tb1);
-			nav_minWidth(sdNav.tb2);
-
 			// style toolbar 3
 			// if not IE9
 			if (sdNav.IE9 !== true) {
 				// add classes to menu pills
 				sdNav.tb3.find('ul li a').addClass('radiusAll boxShadowOuter');
 				// add end cap to menu pills
-				jq.add('<i class="endCap icon-play radiusLeft"/>').prependTo(sdNav.tb3.find('ul li a'));	
+				jq.add('<i class="endCap icon-play radiusLeft"/>').prependTo(sdNav.tb3.find('ul li a'));
 			} else {
 				// add classes to menu pills
 				sdNav.tb3.find('ul li a').addClass('boxShadowOuter');
 				// add end cap to menu pills
-				jq.add('<i class="endCap icon-play"/>').prependTo(sdNav.tb3.find('ul li a'));	
+				jq.add('<i class="endCap icon-play"/>').prependTo(sdNav.tb3.find('ul li a'));
 			}
 			//Add 'hasChildren' class to menu pills
 			sdNav.tb3.find(' ul > li > ul').parent().addClass('hasChildren')
