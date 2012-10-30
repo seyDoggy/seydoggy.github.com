@@ -157,13 +157,15 @@ jQuery(document).ready(function($){
 		================================================== */
 		var content_spaces_fn = (function(){
 			var if_banner = false, if_ec2 = false, if_nav2 = false, if_ec3 = false;
-			if (jq.add(div_banner).find('div.header').css('display') != 'none') if_banner = true;
+			if (jq.add(div_banner).find('div.header').css('display') === 'block') if_banner = true;
 			if (jq.add(div_extracontent2).css('display') == 'block') if_ec2 = true;
 			if (sdNav.tb2.find("ul").length) if_nav2 = true;
 			if (jq.add(div_extracontent3).css('display') == 'block') if_ec3 = true;
 
-			if (if_banner) jq.add(div_banner).addClass('contentShadow');
-			else jq.add(div_banner).css('display','none');
+			if (if_banner === true || sdSS.headerHeightVariable === true) {
+				jq.add(div_banner).addClass('contentShadow')
+					.find('div.header').css('display','block');
+			} else jq.add(div_banner).css('display','none');
 			
 			if (if_banner === false	&& if_ec2) jq.add(div_extracontent2).addClass('contentShadow');
 			
