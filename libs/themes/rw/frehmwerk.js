@@ -20,7 +20,7 @@
 		// OPTIONS
 		var fw_opts = {
 			albumClass : ''
-		}
+		};
 
 		// check for options
 		if (settings) $.extend(fw_opts, settings);
@@ -42,14 +42,14 @@
 		================================================== */
 		// wide/narrow height
 		$(window).load(function(){
-			div_wide.css('min-height',div_narrow.height());	
+			if (div_narrow.css('display') !== 'none') div_wide.css('min-height',div_narrow.height());
 		});
 
 		// set left/right class on wide and narrow columns
 		if (div_wide.css('float') != 'none') {
 			div_wide.css('float') == 'right' ? div_wide.addClass('right') : div_wide.addClass('left');
 			div_narrow.css('float') == 'right' ? div_narrow.addClass('right') : div_narrow.addClass('left');
-		};
+		}
 
 		/* Toolbar Split/Vertical Options
 		================================================== */
