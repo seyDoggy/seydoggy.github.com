@@ -141,7 +141,7 @@ jQuery(document).ready(function($){
 				.find('> a').append(' &nbsp; <i class="icon-caret-down"/>');
 
 			// style toolbar 3 (responsive)
-			if ($('nav#toolbar3').length) {
+			if (jq.add('nav#toolbar3').length) {
 				var nav_toolbar3 = jq.add('nav#toolbar3');
 				// add classes to menu pills
 				nav_toolbar3.find('ul li a').addClass('radiusAll boxShadowOuter');
@@ -152,6 +152,27 @@ jQuery(document).ready(function($){
 					.find('> a').append(' &nbsp; <i class="icon-caret-down"/>');
 			}
 		})();
+
+		/* Responsive Functions
+		================================================== */
+		var responsive_fn = (function(){
+			if (jq.add('nav#toolbar3').length) {
+				div_top
+					.find('div.titleBlock')
+						.css({
+							'font-size':'70%'
+						})
+						.find('a#logo').css('display','none')
+					.end().end().find('div#extraContainer12 ul.social_links li a')
+						.css({
+							'font-size': '1em',
+							'line-height': '1.5em',
+							'padding': '0 0.25em',
+							'vertical-align': 'middle'
+						});
+			}
+		})();
+
 
 		/* Content Functions
 		================================================== */
