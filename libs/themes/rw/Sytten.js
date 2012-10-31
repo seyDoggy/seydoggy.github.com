@@ -111,7 +111,7 @@ jQuery(document).ready(function($){
 				}
 			};
 			
-			nav_animate(sdNav.tb1.find("div#myExtraContent12"), 'hover', 1, '1.6em');
+			nav_animate(jq.add("div#myExtraContent12"), 'hover', 1, '1.6em');
 			nav_animate(sdNav.tb1,'hover boxShadowDropDown', 0, '5px');
 			nav_animate(sdNav.tb2, 'hover boxShadowDropDownInner');
 
