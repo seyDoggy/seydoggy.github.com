@@ -152,7 +152,7 @@ jQuery(document).ready(function($){
 					.find('> a').append(' &nbsp; <i class="icon-caret-down"/>');
 			}
 		})();
-		
+
 		/* Content Functions
 		================================================== */
 		var content_spaces_fn = (function(){
@@ -161,8 +161,8 @@ jQuery(document).ready(function($){
 			if (jq.add(div_extracontent2).css('display') == 'block') if_ec2 = true;
 			if (sdNav.tb2.find("ul").length) if_nav2 = true;
 			if (jq.add(div_extracontent3).css('display') == 'block') if_ec3 = true;
-
-			if (if_banner === true || sdSS.headerHeightVariable === true) {
+			// if banner of variable header height is in use and the site is NOT responsive
+			if ((if_banner === true || sdSS.headerHeightVariable === true) && !$('nav#toolbar3').length) {
 				jq.add(div_banner).addClass('contentShadow')
 					.find('div.header').css('display','block');
 			} else jq.add(div_banner).css('display','none');
