@@ -116,13 +116,15 @@ jQuery(document).ready(function($){
 			nav_animate(sdNav.tb2, 'hover boxShadowDropDownInner');
 
 			// style toolbar 1 & 2 drop menu
-			sdNav.tb1.add(sdNav.tb2)
-				.find('ul ul').addClass('radiusBottom boxShadowDropDown')
-				.find('ul').removeClass('radiusBottom').addClass('radiusAll')
-				.find('li:first-child, li:first-child > a').addClass('radiusTop')
-				.end().end().find('li:last-child, li:last-child > a').addClass('radiusBottom')
-				.end().find('li:last-child, li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
-			
+			// if not responsive
+			if (!jq.add('nav#toolbar3').length) {
+				sdNav.tb1.add(sdNav.tb2)
+					.find('ul ul').addClass('radiusBottom boxShadowDropDown')
+					.find('ul').removeClass('radiusBottom').addClass('radiusAll')
+					.find('li:first-child, li:first-child > a').addClass('radiusTop')
+					.end().end().find('li:last-child, li:last-child > a').addClass('radiusBottom')
+					.end().find('li:last-child, li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
+			}
 			// style toolbar 3
 			// if not IE9
 			if (sdNav.IE9 !== true) {
@@ -144,12 +146,16 @@ jQuery(document).ready(function($){
 			if (jq.add('nav#toolbar3').length) {
 				var nav_toolbar3 = jq.add('nav#toolbar3');
 				// add classes to menu pills
-				nav_toolbar3.find('ul li a').addClass('radiusAll boxShadowOuter');
+				nav_toolbar3.find('ul li a').addClass('radiusAll boxShadowOuter')
+				//Add 'hasChildren' class to menu pills
+				.end().find('ul > li > ul').parent().addClass('hasChildren')
+					.find('> a').append(' &nbsp; <i class="icon-caret-down"/>');
 				// add end cap to menu pills
 				jq.add('<i class="endCap icon-play radiusLeft"/>').prependTo(nav_toolbar3.find('ul li a'));
-				//Add 'hasChildren' class to menu pills
-				nav_toolbar3.find('ul > li > ul').parent().addClass('hasChildren')
-					.find('> a').append(' &nbsp; <i class="icon-caret-down"/>');
+				// show nested sub pages
+				if (nav_toolbar3.find(" > ul li > ul")) {
+					nav_toolbar3.find("a.current").siblings("ul").css("display", "block").end().parents("ul").css("display", "block");
+				}
 			}
 		})();
 
