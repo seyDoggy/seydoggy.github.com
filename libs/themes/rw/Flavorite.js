@@ -58,7 +58,9 @@ jQuery(document).ready(function($){
 				// move nav after footer
 				sdNav.tb1.insertAfter('.footerNormal').attr('id','toolbar_vertical')
 					.css({'display':'block','margin-top':'2em'})
-					.find('>ul').css({'display':'block'});
+					.find('a.current').siblings('ul')
+						.css("display", "block")
+						.end().parents("ul").css("display", "block");
 				// capture first and last items for toolbar_vertical
 				sdNav.tb1.find('ul:first li:last a').css('border-style', 'none');
 				sdNav.tb1.find('ul a:first').addClass('firstLink');
