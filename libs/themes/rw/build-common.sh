@@ -50,6 +50,8 @@ cat ~/github/sdLightboxAlbums/jquery.sdalbumstyle.js >> pull-common.js && echo -
 cat ~/github/IE9Gradius/jquery.ie9gradius.js >> pull-common.js && echo -e "\n" >> pull-common.js
 # get Frehmwerk
 cat ~/github/seydoggy.github.com/libs/themes/rw/frehmwerk.js >> pull-common.js && echo -e "\n" >> pull-common.js
+# get democheck
+cat ~/github/democheck/democheck.js >> pull-common.js && echo -e "\n" >> pull-common.js
 echo "Done!"
 
 
