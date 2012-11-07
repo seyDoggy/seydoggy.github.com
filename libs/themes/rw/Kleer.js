@@ -39,7 +39,7 @@ jQuery(document).ready(function($){
 			plusClass : 'radiusAll',
 			widthAdjust : 29
 		});
-		/* @end */
+		
 
 		/* @group title center */
 		var sdTitle = (function(){
@@ -68,7 +68,7 @@ jQuery(document).ready(function($){
 				}
 			}
 		})();
-		/* @end */
+		
 
 		/* @group toolbar split/vertical options */
 		var sdNavOptions = (function(){
@@ -90,7 +90,13 @@ jQuery(document).ready(function($){
 					"width":"32px"
 				});
 				// move nav after footer
-				sdNav.tb1.insertAfter(wCopyright).attr('id','toolbar_vertical');
+				sdNav.tb1.insertAfter(wCopyright).attr('id','toolbar_vertical')
+					.css({
+						'display':'block',
+						'padding':'0 1em'
+					}).find('a.current').siblings('ul')
+						.css("display", "block")
+						.end().parents("ul").css("display", "block");
 				// STYLES FOR MOBILE TIER 1
 				sdNav.tb1
 					.find('a')
@@ -131,7 +137,7 @@ jQuery(document).ready(function($){
 					.end().find('.current').add(sdNav.tb3.find('.currentAncestor')).css('background-position','left top');
 			}
 		})();
-		/* @end */
+		
 			
 		/* @group ExtraContent */
 		var sdExtracontent = (function(){
@@ -156,7 +162,7 @@ jQuery(document).ready(function($){
 				}
 			})();
 		})();
-		/* @end */
+		
 			
 		/* @group Sidebar Height */
 		var sdSidebar = (function(){
@@ -169,7 +175,7 @@ jQuery(document).ready(function($){
 				else mContent.addClass('innerShadowRight');
 			}
 		})();
-		/* @end */
+		
 			
 		/* @group copyright/breadcrumb */
 		var sdCopyright = (function(){
@@ -183,7 +189,7 @@ jQuery(document).ready(function($){
 			// if copyright is not present show footer anyway
 			else if (!(footer.html().length)) wCopyright.height(50);
 		})();
-		/* @end */
+		
 		
 		/* @group various page style */
 		var sdPageStyles = (function(){
@@ -193,7 +199,7 @@ jQuery(document).ready(function($){
 			// styles for Blog page
 			if (bEntry.length) sPlugin.children().addClass('contentShadow');
 		})();
-		/* @end */
+		
 
 		/* @group Album */
 		var sdAlbums = (function(){
@@ -208,6 +214,6 @@ jQuery(document).ready(function($){
 
 			$.sdAlbumStyle();
 		})();
-		/* @end */
+		
 	})();
 });
