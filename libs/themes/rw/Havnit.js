@@ -43,7 +43,11 @@ jQuery(document).ready(function($){
 					"width":"32px"
 				});
 				// move nav after footer
-				sdNav.tb1.insertAfter(fContainer).attr('id','toolbar_vertical').css('display','block');
+				sdNav.tb1.insertAfter(fContainer).attr('id','toolbar_vertical')
+					.css('display','block')
+					.find('a.current').siblings('ul')
+						.css("display", "block")
+						.end().parents("ul").css("display", "block");
 				// hide logo
 				siteLogo.parent().css('display','none');
 				// reduce font size in title and slogan
@@ -59,7 +63,7 @@ jQuery(document).ready(function($){
 				if (sdNav.tb2.html().length) mPreContent.addClass('radius0');
 			}
 		})();
-		/* @end */
+		
 
 		/* @group footer options */
 		var sdFooter = (function(){
@@ -74,7 +78,7 @@ jQuery(document).ready(function($){
 			}
 			if (fContent.html().length) fContainer.css('display','block');
 		})();
-		/* @end */
+		
 		
 		/* @group ExtraContent */
 		var sdExtracontent = (function(){
@@ -99,7 +103,7 @@ jQuery(document).ready(function($){
 				}
 			}
 		})();
-		/* @end */
+		
 		
 		/* @group various page style */
 		var sdPageStyles = (function(){
@@ -110,7 +114,7 @@ jQuery(document).ready(function($){
 			// no margin/padding on last blog entry
 			if (bEntry.length) bEntry.filter(':last').css({'margin':'0','padding':'0'});
 		})();
-		/* @end */
+		
 		
 		/* @group Album */
 		var sdAlbums = (function(){
@@ -125,7 +129,7 @@ jQuery(document).ready(function($){
 
 			$.sdAlbumStyle();
 		})();
-		/* @end */
+		
 		
 		/* @group general styles */
 		// invoke SeydoggySlideshow
@@ -141,7 +145,7 @@ jQuery(document).ready(function($){
 		if (title.find('h1.site_title').html().length) title.sdVertAlign('o','m');
 		// set top margin for .logo img
 		if (siteLogo.length) siteLogo.sdVertAlign(siteHeader,'o','m');
-		/* @end */
+		
 		
 	})();
 });
