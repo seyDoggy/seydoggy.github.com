@@ -72,7 +72,7 @@ jQuery(document).ready(function($){
 				if (!logoImg.length) title.css({'margin-left':'0','text-align':'center'});
 			}
 		})();
-		/* @end */
+		
 		
 		/* @group toolbar split/vertical options */
 		var sdNavOptions = (function(){
@@ -94,7 +94,11 @@ jQuery(document).ready(function($){
 					"width":"32px"
 				});
 				// move nav after footer
-				sdNav.tb1.insertAfter(wrapper).attr('id','toolbar_vertical');
+				sdNav.tb1.insertAfter(wrapper).attr('id','toolbar_vertical')
+					.css({'display':'block'})
+					.find('a.current').siblings('ul')
+						.css("display", "block")
+						.end().parents("ul").css("display", "block");
 				// STYLES FOR MOBILE TIER 1
 				sdNav.tb1.css({
 					'float':'none',
@@ -135,7 +139,7 @@ jQuery(document).ready(function($){
 				}
 			}
 		})();
-		/* @end */
+		
 
 		/* @group ExtraContent */
 		var sdExtracontent = (function(){
@@ -191,7 +195,7 @@ jQuery(document).ready(function($){
 				if (!footer.html().length && !bContainer.length) fContainer.addClass('radiusBottom innerShadowTop').removeClass('innerShadowTopBottom');
 			}
 		})();
-		/* @end */
+		
 		
 		/* @group copyright/breadcrumb */
 		var sdCopyright = (function(){
@@ -206,7 +210,7 @@ jQuery(document).ready(function($){
 			// if copyright or breadcrumb is not present
 			else copyright.css('border-top-style','none');
 		})();
-		/* @end */
+		
 		
 		/* @group various page style */
 		var sdPageStyles = (function(){
@@ -214,7 +218,7 @@ jQuery(document).ready(function($){
 			// set width/height of File Sharing blocks according to available space
 			if (fsI.length) fsI.width(fsI.parent().outerWidth(true) / 3 - 45).addClass('radiusAll contentShadow').sdSetHeight(fsI,0);
 		})();
-		/* @end */
+		
 		
 		/* @group Album */
 		var sdAlbums = (function(){
@@ -231,7 +235,7 @@ jQuery(document).ready(function($){
 				plusClass : 'radiusAll contentShadow'
 			});
 		})();
-		/* @end */
+		
 		
 		/* @group general styles */
 		// invoke SeydoggySlideshow
@@ -242,8 +246,8 @@ jQuery(document).ready(function($){
 		// styles for right sidebar
 		else if (sContent.css('float') == 'right') mContent.css('min-height',sContent.outerHeight(true)).addClass('outerShadowRight');
 
-		/* @end */
+		
 
 	})();
-	/* @end */
+	
 });
