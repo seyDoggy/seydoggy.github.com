@@ -56,7 +56,7 @@ jQuery(document).ready(function($){
 		
 		// styles for !empty sidebar title
 		if (sbTitle.html().length) sbTitle.css('margin-bottom','0.5em');
-		/* @end */		
+				
 		
 		/* @group title vertical/horizontal alignment */
 		var sdTitlealign = (function(){
@@ -90,7 +90,7 @@ jQuery(document).ready(function($){
 				siteHeader.width(totalWidth);
 			}
 		})();
-		/* @end */
+		
 
 		/* @group toolbar split/vertical options */
 		var sdNavOptions = (function(){
@@ -118,6 +118,19 @@ jQuery(document).ready(function($){
 					'margin-bottom':'1.5em',
 					'width':'94%'
 				}).find('a').addClass('radiusButtons contentShadowLight');
+
+				// move nav after footer
+				sdNav.tb1.insertAfter(wCopyright).attr('id','toolbar_vertical')
+					.css({
+						'margin-top':'1.5em',
+						'margin-right':'auto',
+						'margin-left':'auto',
+						'margin-bottom':'1.5em',
+						'width':'94%'
+					}).find('a').addClass('radiusButtons contentShadowLight')
+					.end().find('a.current').siblings('ul')
+						.css("display", "block")
+						.end().parents("ul").css("display", "block");
 			} else {
 				// if option 2-tier
 				if (sdNav.type == 1) {
@@ -132,7 +145,7 @@ jQuery(document).ready(function($){
 				} else tbHW.remove();
 			}
 		})();
-		/* @end */
+		
 
 		/* @group ExtraContent */
 		var sdExtracontent = (function(){
@@ -156,7 +169,7 @@ jQuery(document).ready(function($){
 				}
 			}
 		})();
-		/* @end */
+		
 
 		/* @group breadcrumb styles */
 		var sdCopyright = (function(){
@@ -170,7 +183,7 @@ jQuery(document).ready(function($){
 			// if copyright is not present show footer anyway
 			else if (!footer.html().length)wCopyright.height(50);
 		})();
-		/* @end */
+		
 
 		/* @group various page style */
 		var sdPageStyles = (function(){
@@ -180,7 +193,7 @@ jQuery(document).ready(function($){
 			// styles for Blog page
 			if (bEntry.length) sPlugin.children().addClass('contentShadow');
 		})();
-		/* @end */
+		
 		
 		/* @group Album */
 		var sdAlbums = (function(){
@@ -197,7 +210,7 @@ jQuery(document).ready(function($){
 				plusClass : 'radiusAll'
 			});
 		})();
-		/* @end */
+		
 		
 	})();
 });
