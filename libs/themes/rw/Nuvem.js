@@ -50,6 +50,7 @@ jQuery(document).ready(function($){
 		$.SeydoggySlideshow({
 			wrapper : '.header',
 			bgPosition : 'center center',
+			plusClass : 'boxShadowInner boxShadowTop'
 		});
 
 
