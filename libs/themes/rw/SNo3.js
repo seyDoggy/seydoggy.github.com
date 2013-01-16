@@ -123,14 +123,13 @@ jQuery(document).ready(function($){
 
 				// STYLES FOR TIER 3
 				sdNav.tb3.width(sidenavWidth);
-				// make sidenav .current state wider to cover border (if !Firefox)
+				// make sidenav .current state wider to cover border
 				var cItem = sdNav.tb3.find('.currentListItem'),
 				cList = sdNav.tb3.find('.currentListItem').find('.toolbarList');
 
-				if (!$.browser.mozilla) {
-					cItem.width(sidenavWidth + 1);
-					cList.width(sidenavWidth);
-				}
+				cItem.width(sidenavWidth + 1);
+				cList.width(sidenavWidth);
+				
 				if (sContent.css('float') == 'left') sdNav.tb3.addClass('innerShadowRight');
 				else if (sContent.css('float') == 'right') {
 					sdNav.tb3.addClass('innerShadowLeft');
