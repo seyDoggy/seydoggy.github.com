@@ -99,6 +99,10 @@ jQuery(document).ready(function($){
 						.end().find('ul ul li a').filter(':visible').last()
 							.addClass('radiusBottom');
 				}
+				//Add 'hasChildren' class and sub nav indicator
+				elem
+					.find(' ul > li > ul').parent().addClass('hasChildren')
+					.find('> a').append(' &nbsp; <i class="icon-caret-down"/>');
 			};
 			
 			// toolbar3 styles
