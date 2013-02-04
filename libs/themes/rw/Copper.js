@@ -88,9 +88,9 @@ jQuery(document).ready(function($){
 					.find('> ul > li > a')
 						.removeClass('radiusTopLeft')
 						.addClass('radiusAll');
-				if (elem.find('ul ul li').length <= 1) {
+				if (elem.find('> ul > li > ul > li').filter(':visible').length <= 1 && elem.find('> ul > li > ul > li > ul').filter(':visible').length <= 0) {
 					elem
-						.find('ul ul li a')
+						.find('> ul > li > ul > li > a')
 							.addClass('radiusAll');
 				} else {
 					elem
@@ -99,10 +99,16 @@ jQuery(document).ready(function($){
 						.end().find('ul ul li a').filter(':visible').last()
 							.addClass('radiusBottom');
 				}
-				//Add 'hasChildren' class and sub nav indicator
+				// Add 'hasChildren' class and sub nav indicators
 				elem
-					.find(' ul > li > ul').parent().addClass('hasChildren')
-					.find('> a').append(' &nbsp; <i class="icon-caret-down"/>');
+					.find('ul > li > ul')
+						.parent()
+							.addClass('hasChildren')
+							.find('> a.normal')
+								.prepend('<i class="icon-caret-right"/> &nbsp; ')
+							.end().find('> a.current, > a.currentAncestor')
+								.prepend('<i class="icon-caret-down"/> &nbsp; ');
+
 			};
 			
 			// toolbar3 styles
