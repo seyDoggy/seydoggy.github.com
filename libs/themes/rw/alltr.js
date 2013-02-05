@@ -63,7 +63,7 @@ jQuery(document).ready(function($){
 			if (sdNav.type >= 2 || (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length)) {
 				jq.add('div#extraContainer12').css({
 					'position':'static',
-					'width':'100%'
+					'width':'auto'
 				}).addClass('boxShadowOuterTop');
 			}
 				
