@@ -28,10 +28,10 @@ jQuery(document).ready(function($){
 		div_top = jq.add('div.top'),
 		div_header = jq.add('div.header'),
 		div_ec2 = jq.add('div#extraContainer2'),
-		div_middle = jq.add('div.middle'),
 		div_ec3 = jq.add('div#extraContainer3'),
-		div_wide = jq.add('div.wide'),
-		div_narrow = jq.add('div.narrow'),
+		div_middle = jq.add('div.middle'),
+		div_wide = div_middle.find('div.wide'),
+		div_narrow = div_middle.find('div.narrow'),
 		div_blog_entry = jq.add('div.blog-entry'),
 		div_plugin_sidebar = jq.add('div#plugin_sidebar'),
 		group_plugin_sidebar = div_plugin_sidebar.find('div#blog-categories, div#blog-archives, ul.blog-tag-cloud, div#blog-rss-feeds'),
@@ -170,10 +170,18 @@ jQuery(document).ready(function($){
 				// when wide is left or right
 				if (div_wide.hasClass('left')) {
 					// if sidebar right
+					div_middle.css({
+						'border-top-left-radius':'+=1px',
+						'border-bottom-left-radius':'+=1px'
+					});
 					div_wide.removeClass('radiusAll').addClass('radiusLeft boxShadowOuterSidebarRight');
 					div_narrow.addClass('radiusRight');
 				} else if (div_wide.hasClass('right')) {
 					// sidebar left
+					div_middle.css({
+						'border-top-right-radius':'+=1px',
+						'border-bottom-right-radius':'+=1px'
+					});
 					div_wide.removeClass('radiusAll').addClass('radiusRight boxShadowOuterSidebarLeft');
 					div_narrow.addClass('radiusLeft');
 				} else if ($('nav#toolbar3').length) {
