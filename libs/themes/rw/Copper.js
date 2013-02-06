@@ -170,6 +170,7 @@ jQuery(document).ready(function($){
 				// when wide is left or right
 				if (div_wide.hasClass('left')) {
 					// if sidebar right
+					// increase radius to prevent bleed-through
 					div_middle.css({
 						'border-top-left-radius':'+=2px',
 						'border-bottom-left-radius':'+=2px'
@@ -178,6 +179,7 @@ jQuery(document).ready(function($){
 					div_narrow.addClass('radiusRight');
 				} else if (div_wide.hasClass('right')) {
 					// sidebar left
+					// increase radius to prevent bleed-through
 					div_middle.css({
 						'border-top-right-radius':'+=2px',
 						'border-bottom-right-radius':'+=2px'
@@ -186,6 +188,11 @@ jQuery(document).ready(function($){
 					div_narrow.addClass('radiusLeft');
 				} else if ($('nav#toolbar3').length) {
 					// if responsive
+					// increase radius to prevent bleed-through
+					div_middle.css({
+						'border-top-right-radius':'+=2px',
+						'border-top-left-radius':'+=2px'
+					});
 					div_wide.removeClass('radiusAll').addClass('radiusTop');
 					div_narrow.addClass('radiusBottom boxShadowInnerSidebarTop');
 					div_plugin_sidebar.css({
@@ -214,6 +221,9 @@ jQuery(document).ready(function($){
 						'padding-top':'0'
 					});
 				}
+			} else {
+				// increase radius to prevent bleed-through
+				div_middle.css('border-radius','+=2px');
 			}
 		})();
 
