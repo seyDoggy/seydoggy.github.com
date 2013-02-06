@@ -171,16 +171,16 @@ jQuery(document).ready(function($){
 				if (div_wide.hasClass('left')) {
 					// if sidebar right
 					div_middle.css({
-						'border-top-left-radius':'+=1px',
-						'border-bottom-left-radius':'+=1px'
+						'border-top-left-radius':'+=2px',
+						'border-bottom-left-radius':'+=2px'
 					});
 					div_wide.removeClass('radiusAll').addClass('radiusLeft boxShadowOuterSidebarRight');
 					div_narrow.addClass('radiusRight');
 				} else if (div_wide.hasClass('right')) {
 					// sidebar left
 					div_middle.css({
-						'border-top-right-radius':'+=1px',
-						'border-bottom-right-radius':'+=1px'
+						'border-top-right-radius':'+=2px',
+						'border-bottom-right-radius':'+=2px'
 					});
 					div_wide.removeClass('radiusAll').addClass('radiusRight boxShadowOuterSidebarLeft');
 					div_narrow.addClass('radiusLeft');
