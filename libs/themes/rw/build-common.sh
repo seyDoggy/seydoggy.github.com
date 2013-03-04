@@ -89,7 +89,7 @@ echo -e "/*\n\tConsolidated common scripts for seydesign/frehmwerk themes\n\t\n\
 echo -e "// if jQuery is present\nwindow.jQuery || \n// else write jQuery" >> common.min.js
 
 # get jQuery
-curl https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js >> common.min.js
+curl https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js >> common.min.js
 
 # add contents of pull.js to common.min.js
 cat pull.js >> common.min.js
