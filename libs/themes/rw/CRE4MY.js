@@ -179,8 +179,12 @@ jQuery(document).ready(function($){
 			if ((thisEC[3].length && thisEC[4].length) || (emptySub === false && thisEC[4].length)) cContainer.removeClass('radiusAll').css({'border-top-style':'none','border-bottom-style':'none'});
 			else if (thisEC[3].length || emptySub === false) cContainer.removeClass('radiusAll').addClass('radiusBottom').css({'border-top-style':'none'});
 			else if (thisEC[4].length) cContainer.removeClass('radiusAll').addClass('radiusTop').css({'border-bottom-style':'none'});
-			if (thisEC[6].length) copyright.removeClass('radiusAll').addClass('radiusBottom'), bContainer.find('> ul > li:last >  a').addClass('radiusBottomRight');
-			else bContainer.find('> ul > li:last >  a').addClass('radiusRight');
+			if (thisEC[6].length) {
+				copyright.removeClass('radiusAll').addClass('radiusBottom');
+				bContainer.find('> ul > li:last >  a').addClass('radiusBottomRight');
+			} else {
+				bContainer.find('> ul > li:last >  a').addClass('radiusRight');
+			}
 		})();
 
 
