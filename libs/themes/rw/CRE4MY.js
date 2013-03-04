@@ -34,15 +34,15 @@ jQuery(document).ready(function($){
 		emptySub = false,
 		radiusClass = "radiusTop",
 		dropVal = true;
-		
+
 		if (hContainer.css('display') == 'none') isNoHeader = true;
 		if (sdNav.position === 1) radiusClass = "radiusBottom";
 		else if (emptyBar === true) radiusClass = "radiusAll";
-		
+
 		if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) dropVal = false;
-		
+
 		// FUNCTIONS
-		
+
 		/* @group general styles */
 		$.SeydoggySlideshow({
 			bgPosition : 'center center',
@@ -50,7 +50,7 @@ jQuery(document).ready(function($){
 		});
 		// set height .mainContent to that of .sidebarContent if shorter
 		if (sContent.css('display') != 'none') mContent.css('min-height',sContent.height());
-		
+
 
 		/* @group toolbar split/vertical options */
 		var sdNavOptions = (function(){
@@ -62,7 +62,7 @@ jQuery(document).ready(function($){
 			$.sdSmartNav({
 				drop:dropVal
 			});
-			
+
 			// $.sdSmartNav();
 			// if mobile
 			if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) {
@@ -120,7 +120,7 @@ jQuery(document).ready(function($){
 					.end().find('ul li:first-child > a').addClass('radiusTop')
 					.end().find('li:last-child > a').addClass('radiusBottom')
 					.end().find('ul li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
-				
+
 				// set min-width of drop down to width of parent
 				sdNav.tb1.find(' ul ul').each(function(){
 					$(this).css('min-width',$(this).parent().outerWidth(true)+1);
@@ -130,7 +130,7 @@ jQuery(document).ready(function($){
 				});
 			}
 		})();
-		
+
 		/* @group title vertical alignment */
 		var sdTitleValign = (function(){
 			if (!(siteTitle.html().length && siteSlogan.html().length)) {
@@ -142,7 +142,7 @@ jQuery(document).ready(function($){
 			// vertical center logo
 			if (logoImg.length) logoImg.sdVertAlign(siteHeader);
 		})();
-		
+
 		/* @group ExtraContent */
 		var sdExtracontent = (function(){
 			// EC 1 is handled in SS3
@@ -157,7 +157,7 @@ jQuery(document).ready(function($){
 			],
 			ecValue = ec.length,
 			thisEC = [];
-			
+
 			/* ExtraContent (jQuery) VERSION: r1.4.2 */
 			for (i=2;i<=ecValue + 1;i++) {
 				thisEC[i] = jq.add('div' + myEC + i);
@@ -168,7 +168,7 @@ jQuery(document).ready(function($){
 					ec[i-2].show();
 				}
 			}
-			
+
 			/* ExtraContent 12 */
 			if (jq.add('div#myExtraContent12').length) {
 				jq.add('div#myExtraContent12 script').remove();
@@ -182,8 +182,8 @@ jQuery(document).ready(function($){
 			if (thisEC[6].length) copyright.removeClass('radiusAll').addClass('radiusBottom'), bContainer.find('> ul > li:last >  a').addClass('radiusBottomRight');
 			else bContainer.find('> ul > li:last >  a').addClass('radiusRight');
 		})();
-		
-		
+
+
 		/* @group rounding */
 		var sdRounding = (function(){
 			// header/toolbar rounding
@@ -229,13 +229,13 @@ jQuery(document).ready(function($){
 			// hide empty copyright area and round footer
 			else fContainer.removeClass('radiusTop').addClass('radiusAll');
 		})();
-		
+
 
 		/* @group various page style */
 		// set width/height of File Sharing blocks according to available space
 		if (fsI.length) fsI.width(fsI.parent().outerWidth(true) / 3 - 45).addClass('radiusAll contentShadow').sdSetHeight(fsI,0);
-		
-		
+
+
 		/* @group Album */
 		var sdAlbums = (function(){
 			// invoke sdLightboxAlbums
@@ -251,6 +251,6 @@ jQuery(document).ready(function($){
 				plusClass : 'radiusAll'
 			});
 		})();
-		
+
 	})();
 });
