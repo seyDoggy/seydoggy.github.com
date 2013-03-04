@@ -103,6 +103,12 @@ jQuery(document).ready(function($){
 				if ((sdNav.type === 1 || sdNav.type === 3 || sdNav.type === 4) || (sdNav.tbsP === undefined)) emptySub = true;
 				if (!(logoImg.length) && !(siteTitle.html().length) && !(siteSlogan.html().length) && sdNav.type >= 2) emptyBar = true;
 
+				// style toolbar 3
+				if (sdNav.tb3.find(' > ul li > ul')) {
+					//Add 'hasChildren' class to tb3 ul li's
+					sdNav.tb3.find(' > ul li > ul').parent().addClass('hasChildren');
+					sdNav.tb3.find('li.hasChildren > a').append(' &nbsp; <i class="icon-caret-down"/>');
+				}
 				// capture first and last items for toolbar_vertical
 				if (sdNav.tb3.find('ul li').length <= 1) sdNav.tb3.find('a').addClass('radiusAll');
 				else sdNav.tb3.find('ul:first li:first a:first').addClass('radiusTop')
@@ -128,6 +134,7 @@ jQuery(document).ready(function($){
 				sdNav.tb2.find(' ul ul').each(function(){
 					$(this).css('min-width',$(this).parent().outerWidth(true));
 				});
+
 			}
 		})();
 
