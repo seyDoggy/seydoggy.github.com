@@ -136,7 +136,7 @@ jQuery(document).ready(function($){
 		})();
 
 		// set height .mainContent to that of .sidebarContent if shorter
-		if (sContent.css('display') != 'none') mContent.css('min-height',sContent.height());
+		if (sContent.css('display') != 'none') mContent.css('min-height',sContent.outerHeight(true));
 
 		/* @group title vertical alignment */
 		var sdTitleValign = (function(){
