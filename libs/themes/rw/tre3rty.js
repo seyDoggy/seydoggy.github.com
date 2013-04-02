@@ -84,6 +84,9 @@ jQuery(document).ready(function($){
 		/* Top Functions
 		================================================== */
 		var top_fn = (function(){
+			// show top on DOM ready
+			div_top.css('display','block');
+
 			// when slogan is NOT shown
 			if (!div_titleBlock.find('h2#site_slogan').html()) {
 				div_titleBlock.find('h2#site_slogan').css('display','none');
