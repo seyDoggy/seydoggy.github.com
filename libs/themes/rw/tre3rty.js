@@ -45,14 +45,6 @@ jQuery(document).ready(function($){
 		/* FUNCTIONS
 		================================================== */
 
-		/* SS3
-		================================================== */
-		$.SeydoggySlideshow({
-			wrapper : '.header',
-			bgPosition : 'center center',
-			plusClass : radiusClass
-		});
-
 		/* Navigation Functions
 		================================================== */
 		navigation_fn = (function(){
@@ -213,5 +205,14 @@ jQuery(document).ready(function($){
 				}
 			}
 		})();
+
+		/* SS3
+		================================================== */
+		$.SeydoggySlideshow({
+			wrapper : '.header',
+			bgPosition : 'center center',
+			plusClass : radiusClass
+		});
+
 	})();
 });
