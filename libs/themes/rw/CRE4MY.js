@@ -62,7 +62,7 @@ jQuery(document).ready(function($){
 
 			// $.sdSmartNav();
 			// if mobile
-			if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) {
+			if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length) {
 				// add link to navigation
 				$('<a href="#toolbar_vertical" title="menu" class="responsiveMenu"></a>').prependTo(siteHeader).css({
 					"background-image":"url(https://d2c8zg9eqwmdau.cloudfront.net/rw/plus.black.32.png)",
