@@ -58,7 +58,7 @@
 				toolbar2 = 'toolbar2',
 				toolbar3 = 'toolbar3',
 				dropVal = true;
-				if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length || sdNav.drop == false) dropVal = false;
+				if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length || sdNav.drop == false) dropVal = false;
 
 			// invoke sdSmartNav
 			$.sdSmartNav({
@@ -69,7 +69,7 @@
 				drop:dropVal
 			});
 			// if mobile
-			if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) {
+			if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length) {
 				// remove additional tiers
 				sdNav.tb2.remove();
 				sdNav.tb3.remove();

@@ -15,7 +15,10 @@ BUILDNUM=`date "+%y%m%d%H%M%S"`
 
 # get cycle
 echo "Getting Cycle..."
-curl https://raw.github.com/malsup/cycle/master/jquery.cycle.all.js > pull-cycle.js
+curl -LOk https://github.com/malsup/cycle/archive/master.zip
+unzip master.zip
+cat cycle-master/jquery.cycle.all.js > pull-cycle.js
+rm -rf cycle-master master.zip
 echo "Done!"
 
 # compress it

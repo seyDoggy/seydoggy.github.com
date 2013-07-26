@@ -39,7 +39,7 @@ jQuery(document).ready(function($){
 		if (sdNav.position === 1) radiusClass = "radiusBottom";
 		else if (emptyBar === true) radiusClass = "radiusAll";
 
-		if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) dropVal = false;
+		if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length) dropVal = false;
 
 		// FUNCTIONS
 
@@ -61,78 +61,86 @@ jQuery(document).ready(function($){
 			});
 
 			// $.sdSmartNav();
-			// if mobile
-			if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length) {
-				// add link to navigation
-				$('<a href="#toolbar_vertical" title="menu" class="responsiveMenu"></a>').prependTo(siteHeader).css({
-					"background-image":"url(https://d2c8zg9eqwmdau.cloudfront.net/rw/plus.black.32.png)",
-					"background-repeat":"no-repeat",
-					"float":"right",
-					"height":"32px",
-					"margin-top":(siteHeader.height()/2)-16,
-					"margin-right":"0.75em",
-					"width":"32px"
-				});
-				// move nav after footer
-				sdNav.tb1.insertAfter(wFooter).attr('id','toolbar_vertical').css({
-					'margin-top':'1.5em',
-					'display':'block'
-				}).addClass('radiusAll');
-				// capture first and last items for toolbar_vertical
-				if (sdNav.tb1.find('ul li').length <= 1) sdNav.tb1.find('a').addClass('radiusAll');
-				else sdNav.tb1.find('ul:first li:first a:first').addClass('radiusTop')
-						.end().find('ul:first li:last a:last').addClass('radiusBottom').css('border-style', 'none');
-					// show nested sub pages
-				if ($('nav#toolbar_vertical').length) {
-					var nav_toolbar3 = jq.add('nav#toolbar_vertical');
-					if (nav_toolbar3.find(" > ul li > ul")) {
-						nav_toolbar3.find("a.current").siblings("ul").css("display", "block").end().parents("ul").css("display", "block");
+			var responsiveNavHelper = function () {
+				// if mobile
+				if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length) {
+					// add link to navigation
+					if (!$('.responsiveMenu').length) {
+						$('<a href="#toolbar_vertical" title="menu" class="responsiveMenu"></a>').prependTo(siteHeader).css({
+							"background-image":"url(https://d2c8zg9eqwmdau.cloudfront.net/rw/plus.black.32.png)",
+							"background-repeat":"no-repeat",
+							"float":"right",
+							"height":"32px",
+							"margin-top":(siteHeader.height()/2)-16,
+							"margin-right":"0.75em",
+							"width":"32px"
+						});
 					}
+					// move nav after footer
+					sdNav.tb1.insertAfter(wFooter).attr('id','toolbar_vertical').css({
+						'margin-top':'1.5em',
+						'display':'block'
+					}).addClass('radiusAll');
+					// capture first and last items for toolbar_vertical
+					if (sdNav.tb1.find('ul li').length <= 1) sdNav.tb1.find('a').addClass('radiusAll');
+					else sdNav.tb1.find('ul:first li:first a:first').addClass('radiusTop')
+							.end().find('ul:first li:last a:last').addClass('radiusBottom').css('border-style', 'none');
+						// show nested sub pages
+					if ($('nav#toolbar_vertical').length) {
+						var nav_toolbar3 = jq.add('nav#toolbar_vertical');
+						if (nav_toolbar3.find(" > ul li > ul")) {
+							nav_toolbar3.find("a.current").siblings("ul").css("display", "block").end().parents("ul").css("display", "block");
+						}
+					}
+					// round mPreContent
+					mPreContent.addClass('radiusTop');
+					// set sub nav as empty
+					emptySub = true;
+					// remove additional tiers
+					sdNav.tb2.remove();
+					sdNav.tb3.remove();
+				} else {
+					if ((sdNav.type === 1 || sdNav.type === 3 || sdNav.type === 4) || (sdNav.tbsP === undefined)) emptySub = true;
+					if (!(logoImg.length) && !(siteTitle.html().length) && !(siteSlogan.html().length) && sdNav.type >= 2) emptyBar = true;
+
+					// style toolbar 3
+					if (sdNav.tb3.find(' > ul li > ul')) {
+						//Add 'hasChildren' class to tb3 ul li's
+						sdNav.tb3.find(' > ul li > ul').parent().addClass('hasChildren');
+						sdNav.tb3.find('li.hasChildren > a').append(' &nbsp; <i class="icon-caret-down"/>');
+					}
+					// capture first and last items for toolbar_vertical
+					if (sdNav.tb3.find('ul li').length <= 1) sdNav.tb3.find('a').addClass('radiusAll');
+					else sdNav.tb3.find('ul:first li:first a:first').addClass('radiusTop')
+							.end().find('ul:first li:last a:last').addClass('radiusBottom').css('border-style', 'none');
+
+					// STYLES FOR TIER 2
+					// round first list item
+					if (sdNav.tbsP !== undefined) sdNav.tb2.find('> ul:first > li:first >  a:first').addClass('radiusTopLeft');
+					// round mPreContent
+					else mPreContent.addClass('radiusTop');
+					// style toolbar 1 & 2 drop menu
+					sdNav.tb1.add(sdNav.tb2)
+						.find('ul ul').addClass('radiusBottom boxShadowDropDown')
+						.find('ul').removeClass('radiusBottom').addClass('radiusAll')
+						.end().find('ul li:first-child > a').addClass('radiusTop')
+						.end().find('li:last-child > a').addClass('radiusBottom')
+						.end().find('ul li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
+
+					// set min-width of drop down to width of parent
+					sdNav.tb1.find(' ul ul').each(function(){
+						$(this).css('min-width',$(this).parent().outerWidth(true)+1);
+					});
+					sdNav.tb2.find(' ul ul').each(function(){
+						$(this).css('min-width',$(this).parent().outerWidth(true));
+					});
 				}
-				// round mPreContent
-				mPreContent.addClass('radiusTop');
-				// set sub nav as empty
-				emptySub = true;
-				// remove additional tiers
-				sdNav.tb2.remove();
-				sdNav.tb3.remove();
-			} else {
-				if ((sdNav.type === 1 || sdNav.type === 3 || sdNav.type === 4) || (sdNav.tbsP === undefined)) emptySub = true;
-				if (!(logoImg.length) && !(siteTitle.html().length) && !(siteSlogan.html().length) && sdNav.type >= 2) emptyBar = true;
-
-				// style toolbar 3
-				if (sdNav.tb3.find(' > ul li > ul')) {
-					//Add 'hasChildren' class to tb3 ul li's
-					sdNav.tb3.find(' > ul li > ul').parent().addClass('hasChildren');
-					sdNav.tb3.find('li.hasChildren > a').append(' &nbsp; <i class="icon-caret-down"/>');
-				}
-				// capture first and last items for toolbar_vertical
-				if (sdNav.tb3.find('ul li').length <= 1) sdNav.tb3.find('a').addClass('radiusAll');
-				else sdNav.tb3.find('ul:first li:first a:first').addClass('radiusTop')
-						.end().find('ul:first li:last a:last').addClass('radiusBottom').css('border-style', 'none');
-
-				// STYLES FOR TIER 2
-				// round first list item
-				if (sdNav.tbsP !== undefined) sdNav.tb2.find('> ul:first > li:first >  a:first').addClass('radiusTopLeft');
-				// round mPreContent
-				else mPreContent.addClass('radiusTop');
-				// style toolbar 1 & 2 drop menu
-				sdNav.tb1.add(sdNav.tb2)
-					.find('ul ul').addClass('radiusBottom boxShadowDropDown')
-					.find('ul').removeClass('radiusBottom').addClass('radiusAll')
-					.end().find('ul li:first-child > a').addClass('radiusTop')
-					.end().find('li:last-child > a').addClass('radiusBottom')
-					.end().find('ul li:only-child > a').removeClass('radiusTop radiusBottom').addClass('radiusAll');
-
-				// set min-width of drop down to width of parent
-				sdNav.tb1.find(' ul ul').each(function(){
-					$(this).css('min-width',$(this).parent().outerWidth(true)+1);
-				});
-				sdNav.tb2.find(' ul ul').each(function(){
-					$(this).css('min-width',$(this).parent().outerWidth(true));
-				});
-
 			}
+
+			responsiveNavHelper();
+
+			$(window).on('resize orientationchange', responsiveNavHelper);
+
 		})();
 
 		// set height .mainContent to that of .sidebarContent if shorter
