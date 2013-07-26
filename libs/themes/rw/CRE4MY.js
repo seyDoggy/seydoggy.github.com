@@ -1,4 +1,4 @@
-// CRE4MY (c) 2012 Adam Merrifield http://seydoggy.github.com/libs/themes/rw/CRE4MY.js
+// CRE4MY (c) 2012 Adam Merrifield https://d2c8zg9eqwmdau.cloudfront.net/rw/CRE4MY.js
 
 jQuery.noConflict();
 jQuery(document).ready(function($){
@@ -65,7 +65,7 @@ jQuery(document).ready(function($){
 			if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) {
 				// add link to navigation
 				$('<a href="#toolbar_vertical" title="menu" class="responsiveMenu"></a>').prependTo(siteHeader).css({
-					"background-image":"url(http://seydoggy.github.com/libs/themes/rw/plus.black.32.png)",
+					"background-image":"url(https://d2c8zg9eqwmdau.cloudfront.net/rw/plus.black.32.png)",
 					"background-repeat":"no-repeat",
 					"float":"right",
 					"height":"32px",
