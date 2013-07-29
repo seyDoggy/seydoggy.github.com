@@ -107,7 +107,7 @@ jQuery(document).ready(function($){
 					if (sdNav.tb3.find(' > ul li > ul')) {
 						//Add 'hasChildren' class to tb3 ul li's
 						sdNav.tb3.find(' > ul li > ul').parent().addClass('hasChildren');
-						sdNav.tb3.find('li.hasChildren > a').append(' &nbsp; <i class="icon-caret-down"/>');
+						if (!jq.add('li.hasChildren > a > i.icon-caret-down').length) sdNav.tb3.find('li.hasChildren > a').append(' &nbsp; <i class="icon-caret-down"/>');
 					}
 					// capture first and last items for toolbar_vertical
 					if (sdNav.tb3.find('ul li').length <= 1) sdNav.tb3.find('a').addClass('radiusAll');
