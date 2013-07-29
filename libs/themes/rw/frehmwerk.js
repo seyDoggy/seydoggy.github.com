@@ -54,7 +54,10 @@
 		/* Toolbar Split/Vertical Options
 		================================================== */
 		var sdNavOptions = (function(){
-			var dropVal = true;
+			var toolbar1 = 'toolbar1',
+				toolbar2 = 'toolbar2',
+				toolbar3 = 'toolbar3'
+				dropVal = true;
 
 			if (sdNav.drop == false) dropVal = false;
 
@@ -97,7 +100,6 @@
 						drop:false
 					});
 				}
-				
 			};
 
 			responsiveNavHelper();
