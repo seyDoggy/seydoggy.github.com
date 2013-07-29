@@ -58,6 +58,15 @@
 
 			if (sdNav.drop == false) dropVal = false;
 
+			// invoke sdSmartNav
+			$.sdSmartNav({
+				element:'nav',
+				tier1:'.' + toolbar1,
+				tier2:'.' + toolbar2,
+				tier3:'.' + toolbar3,
+				drop:dropVal
+			});
+
 			var responsiveNavHelper = function () {
 
 				// if mobile
@@ -86,15 +95,6 @@
 						tier2:'.' + toolbar2,
 						tier3:'.' + toolbar3,
 						drop:false
-					});
-				} else {
-					// invoke sdSmartNav
-					$.sdSmartNav({
-						element:'nav',
-						tier1:'.' + toolbar1,
-						tier2:'.' + toolbar2,
-						tier3:'.' + toolbar3,
-						drop:dropVal
 					});
 				}
 				
