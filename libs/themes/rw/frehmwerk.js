@@ -54,10 +54,7 @@
 		/* Toolbar Split/Vertical Options
 		================================================== */
 		var sdNavOptions = (function(){
-			var toolbar1 = 'toolbar1',
-				toolbar2 = 'toolbar2',
-				toolbar3 = 'toolbar3',
-				dropVal = true;
+			var dropVal = true;
 
 			if (sdNav.drop == false) dropVal = false;
 
@@ -82,18 +79,26 @@
 					jq.add('<div class="outer last"><div class="inner"></div></div>').insertAfter(div_inner.last());
 					sdNav.tb1.appendTo(jq.add('div.outer.last > div.inner')).attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'});
 					
+					// invoke sdSmartNav
+					$.sdSmartNav({
+						element:'nav',
+						tier1:'.' + toolbar1,
+						tier2:'.' + toolbar2,
+						tier3:'.' + toolbar3,
+						drop:false
+					});
+				} else {
+					// invoke sdSmartNav
+					$.sdSmartNav({
+						element:'nav',
+						tier1:'.' + toolbar1,
+						tier2:'.' + toolbar2,
+						tier3:'.' + toolbar3,
+						drop:dropVal
+					});
 				}
-				return dropVal = false;
+				
 			};
-
-			// invoke sdSmartNav
-			$.sdSmartNav({
-				element:'nav',
-				tier1:'.' + toolbar1,
-				tier2:'.' + toolbar2,
-				tier3:'.' + toolbar3,
-				drop:dropVal
-			});
 
 			responsiveNavHelper();
 			$(window).on('resize orientationchange', responsiveNavHelper);
