@@ -85,15 +85,17 @@ jQuery(document).ready(function($){
 					sdNav.tb2.remove();
 					sdNav.tb3.remove();
 					// add link to navigation
-					$('<a href="#toolbar_vertical" title="menu" class="responsiveMenu"></a>').prependTo(siteHeader).css({
-						"background-image":"url(https://d2c8zg9eqwmdau.cloudfront.net/rw/plus.black.32.png)",
-						"background-repeat":"no-repeat",
-						"float":"right",
-						"height":"32px",
-						"margin-top":(siteHeader.height()/2)-16,
-						"margin-right":"0.75em",
-						"width":"32px"
-					});
+					if (!$('.responsiveMenu').length) {
+						$('<a href="#toolbar_vertical" title="menu" class="responsiveMenu"></a>').prependTo(siteHeader).css({
+							"background-image":"url(https://d2c8zg9eqwmdau.cloudfront.net/rw/plus.black.32.png)",
+							"background-repeat":"no-repeat",
+							"float":"right",
+							"height":"32px",
+							"margin-top":(siteHeader.height()/2)-16,
+							"margin-right":"0.75em",
+							"width":"32px"
+						});
+					}
 					// move nav after footer
 					sdNav.tb1.insertAfter(wrapper).attr('id','toolbar_vertical')
 						.css({'display':'block'})
