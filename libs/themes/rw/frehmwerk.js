@@ -56,49 +56,33 @@
 		var sdNavOptions = (function(){
 			var toolbar1 = 'toolbar1',
 				toolbar2 = 'toolbar2',
-				toolbar3 = 'toolbar3'
+				toolbar3 = 'toolbar3',
 				dropVal = true;
+				if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length || sdNav.drop == false) dropVal = false;
 
-			
-			var isDrop = function () {
-				if ((jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length) || sdNav.drop == false) dropVal = false;
-				return dropVal;
-			};
-
-			var responsiveNavHelper = function () {
-
-				// if mobile
-				if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length) {
-					// remove additional tiers
-					sdNav.tb2.remove();
-					sdNav.tb3.remove();
-					// add link to navigation
-					if (!$('.responsiveMenu').length) {
-						jq.add('<a href="#' + toolbar3 + '" title="menu" class="responsiveMenu"><i></i></a>').prependTo(div_titleBlock).css({
-							"margin-top":(div_titleBlock.height()/2)-16
-						});
-					}
-					// if theme supports Font Awesome and has styles for it...
-					if (jq.add('a.responsiveMenu i').css('position') == 'relative') jq.add('a.responsiveMenu i').addClass('icon-reorder icon-large');
-					// move nav after footer
-					jq.add('<div class="outer last"><div class="inner"></div></div>').insertAfter(div_inner.last());
-					sdNav.tb1.appendTo(jq.add('div.outer.last > div.inner')).attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'});
-					
-				}
-			};
-			
-			$(window).on('load resize orientationchange', function () {
-				isDrop();
-				// invoke sdSmartNav
-				$.sdSmartNav({
-					element:'nav',
-					tier1:'.' + toolbar1,
-					tier2:'.' + toolbar2,
-					tier3:'.' + toolbar3,
-					drop:dropVal
-				});
-				responsiveNavHelper();
+			// invoke sdSmartNav
+			$.sdSmartNav({
+				element:'nav',
+				tier1:'.' + toolbar1,
+				tier2:'.' + toolbar2,
+				tier3:'.' + toolbar3,
+				drop:dropVal
 			});
+			// if mobile
+			if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length) {
+				// remove additional tiers
+				sdNav.tb2.remove();
+				sdNav.tb3.remove();
+				// add link to navigation
+				jq.add('<a href="#' + toolbar3 + '" title="menu" class="responsiveMenu"><i></i></a>').prependTo(div_titleBlock).css({
+					"margin-top":(div_titleBlock.height()/2)-16
+				});
+				// if theme supports Font Awesome and has styles for it...
+				if (jq.add('a.responsiveMenu i').css('position') == 'relative') jq.add('a.responsiveMenu i').addClass('icon-reorder icon-large');
+				// move nav after footer
+				jq.add('<div class="outer last"><div class="inner"></div></div>').insertAfter(div_inner.last());
+				sdNav.tb1.appendTo(jq.add('div.outer.last > div.inner')).attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'});
+			}
 		})();
 
 		/* ExtraContent
