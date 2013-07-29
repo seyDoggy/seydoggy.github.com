@@ -59,9 +59,9 @@ jQuery(document).ready(function($){
 				
 		
 		/* @group title vertical/horizontal alignment */
-		var sdTitlealign = (function(){
+		var sdTitlealign = function(){
 			// if mobile
-			if (jq.add('body').width() <= '600') {
+			if (jq.add(window).width() <= '600') {
 				wTitle.css('text-align','left');
 				title.css('display','block');
 				siteLogo.css('display','none');
@@ -89,27 +89,25 @@ jQuery(document).ready(function($){
 				// set siteHeader width (center styling done in CSS)
 				siteHeader.width(totalWidth);
 			}
-		})();
-		
+		};
 
-		/* @group toolbar split/vertical options */
-		var sdNavOptions = (function(){
-			// invoke sdSmartNav
-			$.sdSmartNav();
-			// if mobile
-			if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) {
+		// if mobile
+		var responsiveNavHelper = function () {
+			if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length) {
 				// remove additional tiers
 				sdNav.tb2.remove();
 				sdNav.tb3.remove();
 				// add link to navigation
-				$('<a href="#toolbar_vertical" title="menu" class="responsiveMenu"></a>').prependTo(siteHeader).css({
-					"background-image":"url(http://seydoggy.github.com/libs/themes/rw/plus.black.32.png)",
-					"background-repeat":"no-repeat",
-					"float":"right",
-					"height":"32px",
-					"margin-top":(siteHeader.height()/2)-16,
-					"width":"32px"
-				});
+				if (!$('.responsiveMenu').length) {
+					$('<a href="#toolbar_vertical" title="menu" class="responsiveMenu"></a>').prependTo(siteHeader).css({
+						"background-image":"url(https://d2c8zg9eqwmdau.cloudfront.net/rw/plus.black.32.png)",
+						"background-repeat":"no-repeat",
+						"float":"right",
+						"height":"32px",
+						"margin-top":(siteHeader.height()/2)-16,
+						"width":"32px"
+					});
+				}
 				// move nav after footer
 				sdNav.tb1.insertAfter(wCopyright).attr('id','toolbar_vertical').css({
 					'margin-top':'1.5em',
@@ -144,6 +142,22 @@ jQuery(document).ready(function($){
 					tbHW.remove();
 				} else tbHW.remove();
 			}
+		};
+		
+
+		/* @group toolbar split/vertical options */
+		var sdNavOptions = (function(){
+			// invoke sdSmartNav
+			$.sdSmartNav();
+
+			responsiveNavHelper();
+			sdTitlealign();
+
+			$(window).on('resize orientationchange', function () {
+				responsiveNavHelper();
+				sdTitlealign();
+			});
+
 		})();
 		
 
