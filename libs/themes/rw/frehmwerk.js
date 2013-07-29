@@ -61,7 +61,8 @@
 
 			
 			var isDrop = function () {
-				return if ((jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length) || sdNav.drop == false) dropVal = false;
+				if ((jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length) || sdNav.drop == false) dropVal = false;
+				return dropVal;
 			};
 
 			var responsiveNavHelper = function () {
@@ -85,6 +86,7 @@
 					
 				}
 			};
+			
 			$(window).on('load resize orientationchange', function () {
 				isDrop();
 				// invoke sdSmartNav
