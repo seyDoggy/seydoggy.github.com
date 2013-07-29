@@ -50,7 +50,7 @@ jQuery(document).ready(function($){
 		/* @group Title align */
 		var sdTitleAlign = (function(){
 			// if mobile
-			if (jq.add('body').width() <= '600') {
+			if (jq.add(window).width() <= '600') {
 				jq.add('body').css('padding-top','1em');
 				logo.css('display','none');
 				title.css('font-size','0.75em');
@@ -79,13 +79,13 @@ jQuery(document).ready(function($){
 			// invoke sdSmartNav
 			$.sdSmartNav();
 			// if mobile
-			if (jq.add('body').width() <= '600' && jq.add('meta[name=viewport]').length) {
+			if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length) {
 				// remove additional tiers
 				sdNav.tb2.remove();
 				sdNav.tb3.remove();
 				// add link to navigation
 				$('<a href="#toolbar_vertical" title="menu" class="responsiveMenu"></a>').prependTo(siteHeader).css({
-					"background-image":"url(http://seydoggy.github.com/libs/themes/rw/plus.black.32.png)",
+					"background-image":"url(https://d2c8zg9eqwmdau.cloudfront.net/rw/plus.black.32.png)",
 					"background-repeat":"no-repeat",
 					"float":"right",
 					"height":"32px",
