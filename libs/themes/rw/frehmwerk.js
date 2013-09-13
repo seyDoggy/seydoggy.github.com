@@ -59,11 +59,16 @@ http://seydesign.com/frehmwerk
             toolbar3 = 'toolbar3',
             dropVal = true;
 
+            if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length || sdNav.drop == false) {
+                dropVal = false;
+            }
+
             $(window).on('resize orientationchange',function () {
                 if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length || sdNav.drop == false) {
                     dropVal = false;
                 }
             });
+
             // invoke sdSmartNav
             $.sdSmartNav({
                 element:'nav',
