@@ -62,6 +62,15 @@ http://seydesign.com/frehmwerk
             var responsiveNavHelper = function () {
                 if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length || sdNav.drop == false) dropVal = false;
 
+                // invoke sdSmartNav
+                $.sdSmartNav({
+                    element:'nav',
+                    tier1:'.' + toolbar1,
+                    tier2:'.' + toolbar2,
+                    tier3:'.' + toolbar3,
+                    drop:dropVal
+                });
+
                 // if mobile
                 if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length) {
                     // remove additional tiers
@@ -79,19 +88,9 @@ http://seydesign.com/frehmwerk
                         sdNav.tb1.appendTo(jq.add('div.outer.last > div.inner')).attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'});
                     }
                 }
-                return dropVal;
             };
 
             responsiveNavHelper();
-
-            // invoke sdSmartNav
-            $.sdSmartNav({
-                element:'nav',
-                tier1:'.' + toolbar1,
-                tier2:'.' + toolbar2,
-                tier3:'.' + toolbar3,
-                drop:dropVal
-            });
 
             $(window).on('resize orientationchange', responsiveNavHelper);
         })();
