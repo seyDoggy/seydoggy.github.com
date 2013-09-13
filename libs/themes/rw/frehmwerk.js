@@ -62,6 +62,7 @@ http://seydesign.com/frehmwerk
             var responsiveNavHelper = function () {
                 if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length || sdNav.drop == false) dropVal = false;
 
+                console.log(sdNav.tb1);
                 // invoke sdSmartNav
                 $.sdSmartNav({
                     element:'nav',
