@@ -59,19 +59,21 @@ http://seydesign.com/frehmwerk
             toolbar3 = 'toolbar3',
             dropVal = true;
 
+            $(window).on('resize orientationchange',function () {
+                if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length || sdNav.drop == false) {
+                    dropVal = false;
+                }
+            });
+            // invoke sdSmartNav
+            $.sdSmartNav({
+                element:'nav',
+                tier1:'.' + toolbar1,
+                tier2:'.' + toolbar2,
+                tier3:'.' + toolbar3,
+                drop:dropVal
+            });
+
             var responsiveNavHelper = function () {
-                if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length || sdNav.drop == false) dropVal = false;
-
-                console.log(sdNav.tb1);
-                // invoke sdSmartNav
-                $.sdSmartNav({
-                    element:'nav',
-                    tier1:'.' + toolbar1,
-                    tier2:'.' + toolbar2,
-                    tier3:'.' + toolbar3,
-                    drop:dropVal
-                });
-
                 // if mobile
                 if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length) {
                     // remove additional tiers
