@@ -68,6 +68,8 @@ http://seydesign.com/frehmwerk
                 drop:dropVal
             });
 
+            var isResponsive = false;
+
             var responsiveNavHelper = function () {
                 if (jq.add(window).width() <= '600' && jq.add('meta[name=viewport]').length || sdNav.drop == false) dropVal = false;
 
@@ -77,7 +79,7 @@ http://seydesign.com/frehmwerk
                     sdNav.tb2.remove();
                     sdNav.tb3.remove();
                     // add link to navigation
-                    if (!$('.responsiveMenu').length) {
+                    if (!$('.responsiveMenu').length && isResponsive == false) {
                         jq.add('<a href="#' + toolbar3 + '" title="menu" class="responsiveMenu"><i></i></a>').prependTo(div_titleBlock).css({
                             "margin-top":(div_titleBlock.height()/2)-16
                         });
@@ -86,8 +88,10 @@ http://seydesign.com/frehmwerk
                         // move nav after footer
                         jq.add('<div class="outer last"><div class="inner"></div></div>').insertAfter(div_inner.last());
                         sdNav.tb1.appendTo(jq.add('div.outer.last > div.inner')).attr({'class':toolbar3, 'id':toolbar3}).css({'display':'block','margin-top':'1em'});
+                        isResponsive = true;
                     }
                 }
+                return isResponsive;
             };
 
             responsiveNavHelper();
