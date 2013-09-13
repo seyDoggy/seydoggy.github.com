@@ -82,6 +82,8 @@ http://seydesign.com/frehmwerk
                 return dropVal;
             };
 
+            responsiveNavHelper();
+
             // invoke sdSmartNav
             $.sdSmartNav({
                 element:'nav',
@@ -91,7 +93,6 @@ http://seydesign.com/frehmwerk
                 drop:dropVal
             });
 
-            responsiveNavHelper();
             $(window).on('resize orientationchange', responsiveNavHelper);
         })();
 
